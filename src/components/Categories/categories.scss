@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    &-item {
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            .categories-img {
+                opacity: 0;
+            }
+            .categories-img--hover {
+                opacity: 1;
+            }
+        }
+    }
+    &-img {
+        width: 10rem;
+        height: 10rem;
+        opacity: 1;
+        transition: all 0.2s linear;
+
+        &--hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    }
+    &-name {
+        padding: 0.25rem;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+        span {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $primary;
+        }
+    }
+}

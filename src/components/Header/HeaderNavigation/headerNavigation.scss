@@ -1,0 +1,34 @@
+@import '../../../styles/variables.scss';
+
+.nav {
+    display: flex;
+
+    &Item {
+        a {
+            font-weight: 700;
+        color: $black;
+        text-transform: uppercase;
+        padding: 0.4rem;
+        background: transparent;
+        transition: all .2s linear;
+        cursor: pointer;
+        }
+        
+        &:not(:last-child) {
+            margin-right: 3rem;
+        }
+
+        &:hover {
+            a {
+                background: $primary;
+                color: $white;
+            }
+            
+        }
+
+        a.active {
+            background: $primary;
+            color: $white;
+        }
+    }
+}

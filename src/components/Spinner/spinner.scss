@@ -1,0 +1,46 @@
+$color-primary1:#736EFE;
+$color-primary2:#5999FF;
+$color-primary3:#44B9FF;
+$color-primary4:#31D8FF;
+$color-primary5:#18FFFF;
+
+.container {
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle {
+    margin-bottom: 40px;
+    color: #44B9FF;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.square-container {
+    list-style-type: none;
+    display: flex;
+    position: relative;
+}
+
+.square {
+    margin: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    animation: rotating 2s ease infinite;
+}
+
+.square1 {background: $color-primary1; animation-delay: .2s};
+.square2 {background: $color-primary2;animation-delay:.4s};
+.square3 {background: $color-primary3;animation-delay:.6s};
+.square4 {background: $color-primary4;animation-delay: .8s};
+.square5 {background: $color-primary5;animation-delay: 1s};
+
+@keyframes rotating {
+    0% {transform: rotate(0) scale(1);}
+    50% {transform: rotate(90deg) scale(.6);}
+    100% {transform: rotate(90deg) scale(1);}
+}

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Raleway:wght@400;600&display=swap');
+
+//colors
+$primary: #98AB3F;
+$black: #262626;
+$white: #ffffff;
+$dark-grey: #3D3D3D;
+$grey: #999999;
+$light-grey: #D9D9D9;
+
+//fonts
+$font: 'El Messiri', sans-serif;
+$add-font: 'Raleway', sans-serif;
+
+//media
+$desktop: 1300px;
+$tablet: 950px;
+$mobile: 650px;
+$mini-mobile: 410px;
+
+@mixin breakpoint($bp) {
+    @media (max-width: $bp) {
+        @content;
+    }
+}
+
+// @mixin breakpoint-min($bp) {
+//     @media (min-width: $bp) {
+//         @content;
+//     }
+// }
+
+// @mixin breakpoint-height($bp) {
+//     @media (max-height: $bp) {
+//         @content;
+//     }
+// }

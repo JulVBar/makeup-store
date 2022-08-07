@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.shop {
+    &-body {
+        display: flex;
+    }
+
+    &-content {
+        width: 100%;
+        h1 {
+            border: 1px solid $light-grey;
+            height: 60px;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    
+}

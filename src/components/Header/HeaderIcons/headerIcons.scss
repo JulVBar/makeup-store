@@ -1,0 +1,45 @@
+@import '../../../styles/variables.scss';
+
+.headerIcon {
+    width: 2rem;
+    height: 2rem;
+    fill: $dark-grey;
+
+    &Label {
+        position: absolute;
+        top: -0.8rem;
+        right: -1.3rem;
+        width: 2rem;
+        height: 2rem;
+        color: $white;
+        font-size: 1rem;
+        font-weight: 700;
+        background: $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1rem;
+        border-radius: 50%;
+        letter-spacing: normal;
+    }
+
+    &Container {
+        display: flex;
+    }
+
+    &Wrap {
+        position: relative;
+        transition: all .2s linear;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        &:hover {
+            svg {
+                fill: $primary;
+            }
+        }
+    }
+}
