@@ -1,8 +1,8 @@
-import './filters.scss';
+import styles from './filters.module.scss';
 
 const Filters = () => {
     return (
-        <div className="filters">
+        <div className={styles.filters}>
             Filters
         </div>
     )

@@ -58,10 +58,16 @@ button {
 
 header {
     flex: 0 0 6.875rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
 }
 
 main {
     flex: 1 1 auto;
+    padding-top: 6.875rem;
 }
 
 footer {
@@ -72,6 +78,7 @@ footer {
 .container {
     margin: 0 auto;
     max-width: 75rem;
+    padding: 0 1rem;
 }
 
 .pageTitle {
@@ -86,14 +93,42 @@ footer {
     background-repeat: no-repeat;
 }
 
+// .button-green {
+//     background: $primary;
+//     color: $white;
+//     font-weight: 700;
+//     padding: 1rem 2rem;
+//     transition: all 0.2s linear;
+//     cursor: pointer;
+//     &:hover {
+//         background: darken($color: $primary, $amount: 10);
+//     }
+// }
+
 .button-green {
+    position: relative;
+    backface-visibility: hidden;
+    transform: translateY(-20px);
+
     background: $primary;
     color: $white;
     font-weight: 700;
     padding: 1rem 2rem;
-    transition: all 0.2s linear;
     cursor: pointer;
-    &:hover {
-        background: darken($color: $primary, $amount: 10);
+    
+    &:before {
+        content: '';
+        position: absolute;
+        left: -2px;
+        top: -3px;
+        width: calc(100% + 4px);
+        height: calc(100% + 6px);
+        background: rgba(255,255,255,0.2);
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform 0.3s;
+    }
+    &:hover:before {
+        transform: scaleX(1);  
     }
 }

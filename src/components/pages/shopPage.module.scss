@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.shop {
+    &Body {
+        display: flex;
+    }
+
+    &Content {
+        width: 100%;
+    }
+    &List {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+}

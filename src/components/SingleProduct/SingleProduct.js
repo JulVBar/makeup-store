@@ -2,25 +2,26 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import pic from '../../assets/categories/blush.jpg'
-
 import './singleProduct.scss';
 
 const SingleProduct = () => {
     const [product, setProduct] = useState('');
     const { id } = useParams();
-    console.log(id)
+    //для makeup API
+    //взять из парамс другие параметры id, name, price и прочее
+    //сделать поиск по этому ид в сохраненном стейте
     const navigate = useNavigate();
     
     useEffect(() => {
         async function fetchProduct() {
             try {
-                const response = await axios.get(`https://makeup-api.herokuapp.com/api/v1/products/1026`);
+                const response = await axios.get('https://62f0bd3157311485d135bea7.mockapi.io/products/' + id);
                 console.log(response.data)
                 setProduct(response.data);
             } catch (error) {
-                alert('Ошибка при получении пиццы!');
-                navigate('/');
+                alert('Ошибка при получении продукта!');
+                navigate('/'); 
+                // navigate('/shop');
             }
         }
     
@@ -35,35 +36,29 @@ const SingleProduct = () => {
         <div className="singleprod">
             <div className="singleprod-body">
                 <div className="singleprod-picture">
-                    <img className="img-cover" src={pic} alt="Product Name" />
+                    <img className="img-cover" src={product.image_link} alt="Product Name" />
                 </div>
                 <div className="singleprod-content">
                     <div className="singleprod-info">
                         <div className="singleprod-name">{product.name}</div>
-                        <div className="singleprod-price">$120</div>
-                        <div className="singleprod-description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using</div>
-                        <div className="singleprod-brand">Brand: <span>Nyx</span></div>
-                        <div className="singleprod-category">Category: <span>Blush</span></div>
-                        <div className="singleprod-type">Type: <span>Gloss</span></div>
+                        <div className="singleprod-price">${product.price}</div>
+                        <div className="singleprod-description">{product.description}</div>
+                        <div className="singleprod-brand">Brand: <span>{product.brand}</span></div>
+                        <div className="singleprod-category">Category: <span>{product.category}</span></div>
+                        <div className="singleprod-type">Type: <span>{product.product_type}</span></div>
                         <ul className="singleprod-palet">
-                            <li><div className="singleprod-color"></div><span>Color 1</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 2</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 3</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 1</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 2</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 3</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 1</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 2</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 3</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 1</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 2</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 3</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 1</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 2</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 3</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 1</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 2</span></li>
-                            <li><div className="singleprod-color"></div><span>Color 3</span></li>
+                            {product.product_colors.map((color, index) => (
+                                <li
+                                key={`${color.name}-${index}`}
+                                >
+                                    <div
+                                        className="singleprod-color"
+                                        style={{ background: color.hex_value}}
+                                        >
+                                    </div>
+                                    <span>{color.colour_name}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div>
@@ -81,9 +76,13 @@ const SingleProduct = () => {
             <div className="singleprod-footer">
                 <div className="singleprod-tag">Tags:</div>
                 <ul>
-                    <li>tag 1</li>
-                    <li>tag 2</li>
-                    <li>tag 3</li>
+                {product.tag_list.map((tag, index) => (
+                    <li
+                    key={`${tag}-${index}`}
+                    >
+                        {tag}
+                    </li>
+                ))}
                 </ul>
             </div>
         </div>

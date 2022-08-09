@@ -1,66 +1,42 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductList } from '../../reducer/productListSlice';
-import { Link } from 'react-router-dom';
-import Icon from '../Icon/Icon';
+import ProductItem from './ProductItem/ProductItem';
+import Skeleton from './ProductItem/Skeleton';
+import Loader from '../Loader/Loader';
 
 import './productList.scss';
 
 const ProductList = () => {
 
-    const { productList } = useSelector(state => state.products);
+    const { productList, isFetching } = useSelector(state => state.products);
+    const { category, sort, order } = useSelector(state => state.filters);
     const dispatch = useDispatch();
-
+    const url = `https://62f0bd3157311485d135bea7.mockapi.io/products?category=${category}&sortBy=${sort}&order=${order}`;
+    
     useEffect(() => {
-        dispatch(fetchProductList());
+        dispatch(fetchProductList(url));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [url, isFetching])
 
     return (
-        <ul className="product-list">
-            {productList.map((item, index) => (
-                <li 
-                    key={item.id}
-                    className="product-item"
-                >
-                    <div className="product-header">
-                        <div className="product-fav">
-                            <Icon
-                                name="fullheart"
-                                className="product-icon-fav"
-                            />
-                        </div>
-                        <div className="product-img">
-                            <img className="img-cover" src={item.image_link} alt={item.name} />
-                        </div>
-                        <div className="product-img product-img--hover">
-                            <div className="product-circle">
-                                <Icon
-                                    name='heart'
-                                    className="product-icon"
-                                />
-                            </div>
-                            <div className="product-circle">
-                                <Icon
-                                    name='eye'
-                                    className="product-icon"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-body">
-                        <div className="product-name">{item.name}</div>
-                        <div className="product-brand">{item.brand}</div>
-                        <div className="product-price">${item.price}</div>
-                    </div>
-                    <div className="product-footer">
-                        <Link key={item.id} to={`/product/${item.id}`}>
-                            <button className="product-btn button-green">Add to cart</button>
-                        </Link>
-                    </div>
-                </li>
-            ))}
-        </ul>
+        <>
+        {isFetching ? <Loader/> : (
+            <ul className="product-list">
+                {productList.map((item, index) => (isFetching ? <Skeleton key={item.id}/> : (
+                    <ProductItem
+                        key={item.id}
+                        id={item.id}
+                        name={item.name}
+                        image_link={item.image_link}
+                        brand={item.brand}
+                        price={item.price}
+                    />)
+                ))}
+            </ul>
+            )}
+        </>
+        
     )
 }
 

@@ -1,24 +1,24 @@
 import Icon from '../../Icon/Icon';
-import './headerIcons.scss';
+import styles from './headerIcons.module.scss';
 
 const HeaderIcons = () => {
     return (
-        <div className="headerIconContainer">
-            <div className="headerIconWrap">
+        <div className={styles.iconContainer}>
+            <div className={styles.iconWrap}>
                 <Icon
                     name='cart'
-                    className='headerIcon'
+                    className={styles.icon}
                 />
-                <div className="headerIconLabel">
+                <div className={styles.iconLabel}>
                     0
                 </div>
             </div>
-            <div className="headerIconWrap">
+            <div className={styles.iconWrap}>
                 <Icon
                     name='heart'
-                    className='headerIcon'
+                    className={styles.icon}
                 />
-                <div className="headerIconLabel">
+                <div className={styles.iconLabel}>
                     14
                 </div>
             </div>

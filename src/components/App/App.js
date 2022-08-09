@@ -1,21 +1,30 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import Preloader from '../Preloader/Preloader';
 import MainLayout from '../../layout/MainLayout';
-import HomePage from '../pages/HomePage';
-import ShopPage from '../pages/ShopPage';
-import CheckOutPage from '../pages/CheckOutPage';
-import SingleProductPage from '../pages/SingleProductPage';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const ShopPage = lazy(() => import('../pages/ShopPage'));
+const SingleProductPage = lazy(() => import('../pages/SingleProductPage'));
+const CheckOutPage = lazy(() => import('../pages/CheckOutPage'));
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<MainLayout />}>
-                <Route path="" element={<HomePage />} />
+                <Route
+                    path=""
+                    element={
+                    <Suspense fallback={<Preloader/>}>
+                        <HomePage />
+                    </Suspense>
+                    }
+                />
                 <Route
                     path="shop"
                     element={
-                    <Suspense fallback={<div>Идёт загрузка магазина...</div>}>
+                    <Suspense fallback={<Preloader/>}>
                         <ShopPage />
                     </Suspense>
                     }
@@ -23,16 +32,16 @@ function App() {
                 <Route
                     path="checkout"
                     element={
-                    <Suspense fallback={<div>Идёт загрузка магазина...</div>}>
-                        <SingleProductPage />
+                    <Suspense fallback={<Preloader/>}>
+                        <CheckOutPage />
                     </Suspense>
                     }
                 />
                 <Route
                     path="product/:id"
                     element={
-                        <Suspense fallback={<div>Идёт загрузка...</div>}>
-                        <SingleProductPage />
+                        <Suspense fallback={<Preloader/>}>
+                            <SingleProductPage />
                         </Suspense>
                     }
                     />

@@ -8,11 +8,13 @@ import './header.scss';
 const Header = () => {
     return (
         <header className='header'>
-            <div>
-                <img src={logo} alt="logo" />
+            <div className="header-container">
+                <div>
+                    <img src={logo} alt="logo" />
+                </div>
+                <HeaderNavigation />
+                <HeaderIcons />
             </div>
-            <HeaderNavigation />
-            <HeaderIcons />
         </header>
     )
 }

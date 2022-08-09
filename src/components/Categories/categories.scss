@@ -1,13 +1,20 @@
 @import '../../styles/variables.scss';
 
 .categories {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
     margin-bottom: 1rem;
 
     &-item {
         position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         cursor: pointer;
+        width: 12rem;
 
         &:hover {
             .categories-img {
@@ -16,6 +23,9 @@
             .categories-img--hover {
                 opacity: 1;
             }
+        }
+        &.active {
+            border: 2px solid $primary;
         }
     }
     &-img {
@@ -27,17 +37,18 @@
         &--hover {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             opacity: 0;
         }
     }
     &-name {
         padding: 0.25rem;
         text-align: center;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 700;
         span {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: $primary;
         }

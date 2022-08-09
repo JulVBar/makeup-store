@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import SingleProduct from '../SingleProduct/SingleProduct';
 
-
-import './shopPage.scss';
-
 const ShopPage = () => {
+    useEffect(() => {
+        window.scrollTo(0,0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    
     return (
         <>
             <div className="pageTitle">

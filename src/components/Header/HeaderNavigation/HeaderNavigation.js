@@ -5,10 +5,10 @@ import './headerNavigation.scss';
 
 const HeaderNavigation = () => {
     return (
-        <ul className='nav'>
+        <ul className="header-nav">
             {NAVLINKS.map((item, index) => (
                     <li 
-                        className='navItem'
+                        className="header-nav-item"
                         key={`${item.name}-${index}`}
                     >
                         <NavLink

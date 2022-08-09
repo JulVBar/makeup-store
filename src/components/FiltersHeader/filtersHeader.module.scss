@@ -1,9 +1,11 @@
 @import '../../styles/variables.scss';
 
-.header-container {
-    background: $white;
+.header {
+    border: 1px solid $light-grey;
+    height: 4rem;
+    width: 100%;
+    padding: 0 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10rem;
 }

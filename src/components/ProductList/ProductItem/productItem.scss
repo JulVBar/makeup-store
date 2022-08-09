@@ -1,0 +1,103 @@
+@import '../../../styles/variables.scss';
+
+.product {
+    &-item {
+        position: relative;
+        cursor: pointer;
+        width: 16.875rem;
+        margin-bottom: 1rem;
+
+        text-align: center;
+        letter-spacing: 0.1rem;
+
+        overflow: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+
+        &:hover {
+            .product-img--hover {
+                opacity: 1;
+            }
+            .product-footer {
+                opacity: 1;
+            }
+        }
+    }
+    &-body {
+        flex: 1 1 auto;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    &-footer {
+        transition: all 0.2s linear;
+        opacity: 0;
+    }
+    &-img {
+        width: 16.875rem;
+        height: 16.875rem;
+        transition: all 0.2s linear;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 13rem;
+            height: 13rem;
+        }
+        &--hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            background: #53525276;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    &-name {
+        padding: 0.2rem;
+        line-height: 1.5rem;
+        // font-family: $add-font;
+    }
+    &-brand {
+        color: $grey;
+        padding: 0.2rem;
+        flex: 1 1 auto;
+    }
+    &-price {
+        padding: 0.2rem;
+    }
+    &-circle {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s linear;
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+        &:hover {
+            background: darken($color: $white, $amount: 25);
+        }
+    }
+    &-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: $primary;
+    }
+    &-fav {
+        position: absolute;
+        top: 0.3rem;
+        right: 0.3rem;
+        opacity: 0;
+    }
+    &-icon-fav {
+        width: 2rem;
+        height: 2rem;
+        fill: $primary;
+    }
+}
