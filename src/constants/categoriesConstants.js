@@ -14,31 +14,37 @@ import nailpolishImgHover from '../assets/categories/nailpolish-hover.jpg';
 export  const CATEGORIES = [
     {
         name: 'Blush',
+        id: 'blush',
         imgPath: blushImg,
         imgPathHover: blushImgHover,
     },
     {
         name: 'Foundation',
+        id: 'foundation',
         imgPath: foundationImg,
         imgPathHover: foundationImgHover,
     },
     {
         name: 'Lipstick',
+        id: 'lipstick',
         imgPath: lipstickImg,
         imgPathHover: lipstickImgHover,
     },
     {
         name: 'Eyeshadow',
+        id: 'eyeshadow',
         imgPath: eyeshadowImg,
         imgPathHover: eyeshadowImgHover,
     },
     {
         name: 'Mascara',
+        id: 'mascara',
         imgPath: mascaraImg,
         imgPathHover: mascaraImgHover,
     },
     {
         name: 'Nail Polish',
+        id: 'nail',
         imgPath: nailpolishImg,
         imgPathHover: nailpolishImgHover,
     },

@@ -1,28 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    sortName: 'Default sorting',
-    sort: '',
-    order: 'asc',
+    sortParams: {
+        name: 'Default sorting',
+        sort: '',
+        order: 'asc',
+    },
     category: '',
+    productsOnPage: 9
 }
 
 const filterSlice = createSlice({
     name: 'filters',
     initialState,
     reducers: {
-        setSortName: (state, action) => {
-            state.sortName = action.payload;
-        },
-        setSort: (state, action) => {
-            state.sort = action.payload;
-        },
-        setOrder: (state, action) => {
-            state.order = action.payload;
+        setSortParams: (state, action) => {
+            state.sortParams = action.payload;
         },
         setCategory: (state, action) => {
             state.category = action.payload;
-        }
+        },
+        setProductsOnPage: (state, action) => {
+            state.productsOnPage = action.payload;
+        },
+        setInitialProductsOnPage: (state) => {
+            state.productsOnPage = initialState.productsOnPage;
+        },
     }
 });
 
@@ -31,9 +34,9 @@ const {actions, reducer} = filterSlice;
 export default reducer;
 
 export const {
-    setSortName,
-    setSort,
-    setOrder,
-    setCategory
+    setCategory,
+    setSortParams,
+    setProductsOnPage,
+    setInitialProductsOnPage,
 } = actions;
 

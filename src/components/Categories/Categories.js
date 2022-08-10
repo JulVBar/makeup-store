@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../reducer/filtersSlice';
-import { setStartFetching } from '../../reducer/productListSlice';
+import { setStartFetching, fetchAllProducts} from '../../reducer/productListSlice';
+import { setInitialProductsOnPage} from '../../reducer/filtersSlice';
 import { CATEGORIES } from '../../constants/categoriesConstants';
 
 import './categories.scss';
 
 const Categories = () => {
-    const { category } = useSelector(state => state.filters);
+    const { category} = useSelector(state => state.filters);
     const dispatch = useDispatch();
 
     const onClickCategory= (item) => {
         dispatch(setCategory(item));
         dispatch(setStartFetching());
+        dispatch(fetchAllProducts(item));
+        dispatch(setInitialProductsOnPage());
     };
 
     return (

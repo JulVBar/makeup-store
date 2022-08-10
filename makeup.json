@@ -374,5 +374,381 @@
             "hex_value": "#AB3A47"
         }],
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "10",
+        "name": "Le Rouge Deep Velvet",
+        "brand": "GIVENCHY",
+        "category": "Lipstick",
+        "product_type": "Lipstick",
+        "price": 10.9,
+        "raiting": 5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/GIV083575_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "11",
+        "name": "Glow mania",
+        "brand": "Л'Этуаль",
+        "category": "Lipstick",
+        "product_type": "Lipstick",
+        "price": 12,
+        "raiting": 5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/LT0335837GT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "12",
+        "name": "Увлажняющая губная помада 'Color Riche'",
+        "brand": "L'ORÉAL PARIS",
+        "category": "Lipstick",
+        "product_type": "Lipstick",
+        "price": 11.6,
+        "raiting": 4.9,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/LOR642604GT.jpg",
+        "tag_list": [],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "13",
+        "name": "THE ONLY ONE",
+        "brand": "DOLCE&GABBANA",
+        "category": "Lipstick",
+        "product_type": "Lipstick",
+        "price": 15,
+        "raiting": 4.5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/DGB855085_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "14",
+        "name": "Lips жидкая помада для губ",
+        "brand": "PARISA COSMETICS",
+        "category": "Lipstick",
+        "product_type": "Liquid",
+        "price": 9.99,
+        "raiting": 4.8,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/MPL004019_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "15",
+        "name": "Мини-румяна",
+        "brand": "NARS",
+        "category": "Blush",
+        "product_type": "Blush",
+        "price": 5,
+        "raiting": 5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/NRS666651_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "16",
+        "name": "Creme Puff",
+        "brand": "AX FACTOR",
+        "category": "Blush",
+        "product_type": "Dry blush",
+        "price": 14.4,
+        "raiting": 3.5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/MXF8739MF_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "17",
+        "name": "Румяна для лица Blush Cheek Colour",
+        "brand": "LAMEL PROFESSIONAL",
+        "category": "Blush",
+        "product_type": "Dry blush",
+        "price": 12.3,
+        "raiting": 4.9,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/LML000130_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "18",
+        "name": "Объемная тушь для ресниц Hypnose",
+        "brand": "LANCOME",
+        "category": "Mascara",
+        "product_type": "Mascara",
+        "price": 33.5,
+        "raiting": 5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/KLM356501_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Sintia",
+            "hex_value": "#C07871"
+        },
+        {
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
 ]
