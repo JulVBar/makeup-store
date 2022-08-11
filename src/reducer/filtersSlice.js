@@ -7,7 +7,7 @@ const initialState = {
         order: 'asc',
     },
     category: '',
-    productsOnPage: 9
+    page: 1,
 }
 
 const filterSlice = createSlice({
@@ -20,11 +20,11 @@ const filterSlice = createSlice({
         setCategory: (state, action) => {
             state.category = action.payload;
         },
-        setProductsOnPage: (state, action) => {
-            state.productsOnPage = action.payload;
+        setPage: (state, action) => {
+            state.page = action.payload;
         },
-        setInitialProductsOnPage: (state) => {
-            state.productsOnPage = initialState.productsOnPage;
+        setFirstPage: (state) => {
+            state.page = initialState.page;
         },
     }
 });
@@ -36,7 +36,7 @@ export default reducer;
 export const {
     setCategory,
     setSortParams,
-    setProductsOnPage,
-    setInitialProductsOnPage,
+    setPage,
+    setFirstPage,
 } = actions;
 

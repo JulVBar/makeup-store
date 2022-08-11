@@ -1,21 +1,24 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../reducer/filtersSlice';
 import { setStartFetching, fetchAllProducts} from '../../reducer/productListSlice';
-import { setInitialProductsOnPage} from '../../reducer/filtersSlice';
+import { setFirstPage } from '../../reducer/filtersSlice';
 import { CATEGORIES } from '../../constants/categoriesConstants';
 
 import './categories.scss';
 
 const Categories = () => {
-    const { category} = useSelector(state => state.filters);
+    const { category } = useSelector(state => state.filters);
     const dispatch = useDispatch();
 
-    const onClickCategory= (item) => {
-        dispatch(setCategory(item));
-        dispatch(setStartFetching());
-        dispatch(fetchAllProducts(item));
-        dispatch(setInitialProductsOnPage());
-    };
+    const onCategoryChange = useCallback(
+        (item) => {
+            dispatch(setCategory(item));
+            dispatch(setStartFetching());
+            dispatch(fetchAllProducts(item));
+            dispatch(setFirstPage());
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
 
     return (
         <ul className='categories'>
@@ -23,7 +26,7 @@ const Categories = () => {
                 <li 
                     className={category === item.name ? "categories-item active" : "categories-item"}
                     key={`${item.name}-${index}`}
-                    onClick={() => onClickCategory(item.name)}
+                    onClick={() => onCategoryChange(item.name)}
                 >
                     <div className="categories-img">
                         <img className="img-cover" src={item.imgPath} alt={item.name} />

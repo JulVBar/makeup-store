@@ -1,35 +1,28 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductList, fetchAllProducts } from '../../reducer/productListSlice';
-import { setProductsOnPage } from '../../reducer/filtersSlice';
 import ProductItem from './ProductItem/ProductItem';
 import Skeleton from './ProductItem/Skeleton';
 import Loader from '../Loader/Loader';
+import Pagination from '../Pagination/Pagination';
 
 import './productList.scss';
 
 const ProductList = () => {
-    const { productList, isFetching } = useSelector(state => state.products);
-    const { category, sortParams, productsOnPage } = useSelector(state => state.filters);
+    const { allProducts, productList, isFetching } = useSelector(state => state.products);
+    const { category, sortParams, page } = useSelector(state => state.filters);
     const dispatch = useDispatch();
-    const params = { ...sortParams, productsOnPage, category };
-
+    const params = { ...sortParams, page, category };
+    
     useEffect(() => {
         dispatch(fetchProductList(params));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isFetching, productsOnPage]);
+    }, [isFetching, page]);
 
     useEffect(() => {
         dispatch(fetchAllProducts(category));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const onLoadingMore = useCallback(
-        () => {
-            const newLimit = productsOnPage + 3;
-            dispatch(setProductsOnPage(newLimit));
-        },
-    [productsOnPage],);
 
     return (
         <>
@@ -47,14 +40,9 @@ const ProductList = () => {
                 ))}
             </ul>
             )}
-            <div className="product-list-load-more">
-                <button 
-                    className="button-green"
-                    onClick={onLoadingMore}
-                >
-                        Load More
-                </button>
-            </div>
+            <Pagination
+                allProducts={allProducts}
+            />
         </>
         
     )

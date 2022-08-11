@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.page {
+    &-list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    &-item {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        border: 1px solid $light-grey;
+        background: $white;
+        color: $grey;
+        transition: color .2s linear;
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+        &:hover {
+            color: $black;
+        }
+        &.active {
+            border: 1px solid $primary;
+            background: $primary;
+            color: $white;
+        }
+    }
+}

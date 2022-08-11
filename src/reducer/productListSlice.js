@@ -10,12 +10,9 @@ const initialState = {
 export const fetchProductList = createAsyncThunk(
     'products/fetchproductList',
     async (params) => {
-        // const response = await axios.get('http://makeup-api.herokuapp.com/api/v1/products.json?brand=nyx&product_type=bronzer');
-        const { category, sort, order, productsOnPage } = params;
-        const url = `https://62f0bd3157311485d135bea7.mockapi.io/products?page=1&limit=${productsOnPage}&category=${category}&sortBy=${sort}&order=${order}`;
-        
+        const { category, sort, order, page } = params;
+        const url = `https://62f0bd3157311485d135bea7.mockapi.io/products?page=${page}&limit=9&category=${category}&sortBy=${sort}&order=${order}`;
         const response = await axios.get(url);
-        // console.log(response.data)
         return response.data;
     }
 );
@@ -24,7 +21,6 @@ export const fetchAllProducts = createAsyncThunk(
     'products/fetchAllProducts',
     async (category) => {
         const response = await axios.get(`https://62f0bd3157311485d135bea7.mockapi.io/products?category=${category}`);
-        // console.log(response.data)
         return response.data;
     }
 );

@@ -132,3 +132,12 @@ footer {
         transform: scaleX(1);  
     }
 }
+
+.button-disabled {
+    background: $grey;
+    color: $white;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    cursor: not-allowed;
+    transform: translateY(-20px);
+}

@@ -8,7 +8,6 @@ import FiltersHeader from '../FiltersHeader/FiltersHeader';
 import styles from './shopPage.module.scss';
 
 const ShopPage = () => {
-
     useEffect(() => {
         window.scrollTo(0,0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -28,7 +27,6 @@ const ShopPage = () => {
                         <div className={styles.shopList}>
                             <ProductList />
                         </div>
-                        
                     </div>
                 </div>
             </div>
