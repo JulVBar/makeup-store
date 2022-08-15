@@ -35,6 +35,7 @@ const ProductList = () => {
                         name={item.name}
                         image_link={item.image_link}
                         brand={item.brand}
+                        productColors={item.product_colors}
                         price={item.price}
                     />)
                 ))}
@@ -44,7 +45,6 @@ const ProductList = () => {
                 allProducts={allProducts}
             />
         </>
-        
     )
 }
 

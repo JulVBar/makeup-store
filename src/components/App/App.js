@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const ShopPage = lazy(() => import('../pages/ShopPage'));
 const SingleProductPage = lazy(() => import('../pages/SingleProductPage'));
 const CheckOutPage = lazy(() => import('../pages/CheckOutPage'));
+const CartPage = lazy(() => import('../pages/CartPage'));
 
 function App() {
     return (
@@ -26,6 +27,14 @@ function App() {
                     element={
                     <Suspense fallback={<Preloader/>}>
                         <ShopPage />
+                    </Suspense>
+                    }
+                />
+                <Route
+                    path="cart"
+                    element={
+                    <Suspense fallback={<Preloader/>}>
+                        <CartPage />
                     </Suspense>
                     }
                 />

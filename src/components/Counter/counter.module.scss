@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.counter {
+    display: flex;
+    div {
+        border: 1px solid $grey;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+        &:not(:last-child) {
+            border-right: none;
+        }
+        &:last-child,
+        &:first-child {
+            cursor: pointer;
+            background: $light-grey;
+            transition: all 0.2s linear;
+            &:hover {
+                background: darken($color: $light-grey, $amount: 10)
+            }
+        }
+    }
+}

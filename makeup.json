@@ -44,6 +44,34 @@
         {
             "colour_name": "Simply red",
             "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Fucsia",
+            "hex_value": "#CF1C51"
+        },
+        {
+            "colour_name": "Silvana",
+            "hex_value": "#260A12"
+        },
+        {
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
         }],
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },

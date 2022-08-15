@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../reducer/filtersSlice';
 import { setStartFetching } from '../../reducer/productListSlice';
@@ -9,13 +8,11 @@ const Pagination = ({allProducts}) => {
     const dispatch = useDispatch();
     const pages = [...Array(Math.ceil(allProducts.length / 9)).keys()].map(x => ++x);
 
-    const onPageChange = useCallback(
-        (item) => {
-            dispatch(setPage(item));
-            dispatch(setStartFetching());
-            window.scrollTo(0, 0);
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, []);
+    const onPageChange = (item) => {
+        dispatch(setPage(item));
+        dispatch(setStartFetching());
+        window.scrollTo(0, 0);
+    }
 
     return (
         <ul className="page-list">

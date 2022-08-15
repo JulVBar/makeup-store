@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import products from '../../assets/headers/products.svg';
 import Categories from '../Categories/Categories';
 import ProductList from '../ProductList/ProductList';
-import Filters from '../Filters/Filters';
+import FiltersSidebar from '../FiltersSidebar/FiltersSidebar';
 import FiltersHeader from '../FiltersHeader/FiltersHeader';
 
 import styles from './shopPage.module.scss';
@@ -21,7 +21,7 @@ const ShopPage = () => {
             <div className="container">
                 <Categories />
                 <div className={styles.shopBody}>
-                    <Filters />
+                    <FiltersSidebar />
                     <div className={styles.shopContent}>
                         <FiltersHeader/>
                         <div className={styles.shopList}>

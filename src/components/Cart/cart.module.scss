@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.cartFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2rem;
+}
+.cartTotal {
+    margin-bottom: 3rem;
+    font-weight: 700;
+    span {
+        padding-left: 1rem;
+    }
+}

@@ -91,6 +91,10 @@ footer {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    
+    &--cart {
+        background: url("../assets/headers/shopping-cart-bg.jpg");
+    }
 }
 
 // .button-green {

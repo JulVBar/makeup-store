@@ -3,7 +3,6 @@
 .product {
     &-item {
         position: relative;
-        cursor: pointer;
         width: 16.875rem;
         margin-bottom: 1rem;
 
@@ -28,6 +27,7 @@
         margin-bottom: 2.5rem;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     &-footer {
         transition: all 0.2s linear;
@@ -40,6 +40,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
         img {
             width: 13rem;
             height: 13rem;
@@ -55,17 +56,55 @@
             align-items: center;
         }
     }
+    &-title {
+        min-height: 6rem;
+    }
     &-name {
         padding: 0.2rem;
         line-height: 1.5rem;
+        transition: color .2s linear;
+        cursor: pointer;
+        &:hover {
+            color: $primary;
+        }
     }
     &-brand {
         color: $grey;
         padding: 0.2rem;
+        margin-bottom: 0.7rem;
+        cursor: default;
+    }
+    &-palet {
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+        margin-bottom: 0.7rem;
         flex: 1 1 auto;
+        padding: 0.2rem;
+        li {
+            width: 1.55rem;
+            height: 1.55rem;
+            border-radius: 50%;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0.3rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            div {
+                width: 1.3rem;
+                height: 1.3rem;
+                border-radius: 50%;
+            }
+            &.active {
+                border: 1px solid $primary;
+            }
+        }
     }
     &-price {
         padding: 0.2rem;
+        cursor: default;
     }
     &-circle {
         width: 3.5rem;
@@ -92,7 +131,6 @@
         position: absolute;
         top: 0.3rem;
         right: 0.3rem;
-        opacity: 0;
     }
     &-icon-fav {
         width: 2rem;

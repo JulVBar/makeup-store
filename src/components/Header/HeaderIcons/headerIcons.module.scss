@@ -4,6 +4,11 @@
     width: 2rem;
     height: 2rem;
     fill: $dark-grey;
+    &Active {
+        width: 2rem;
+        height: 2rem;
+        fill: $primary;
+    }
     &Label {
         position: absolute;
         top: -0.8rem;

@@ -1,22 +1,18 @@
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
+import Counter from '../Counter/Counter';
 import './singleProduct.scss';
 
 const SingleProduct = () => {
     const [product, setProduct] = useState('');
     const { id } = useParams();
-    //для makeup API
-    //взять из парамс другие параметры id, name, price и прочее
-    //сделать поиск по этому ид в сохраненном стейте
     const navigate = useNavigate();
     
     useEffect(() => {
         async function fetchProduct() {
             try {
                 const response = await axios.get('https://62f0bd3157311485d135bea7.mockapi.io/products/' + id);
-                console.log(response.data)
                 setProduct(response.data);
             } catch (error) {
                 alert('Ошибка при получении продукта!');
@@ -62,12 +58,8 @@ const SingleProduct = () => {
                         </ul>
                     </div>
                     <div>
-                        <ul className="singleprod-buy">
-                            <li>-</li>
-                            <li>1</li>
-                            <li>+</li>
-                        </ul>
-                        <div>
+                        <Counter/>
+                        <div className="singleprod-btn">
                             <button className="button-green">Add to cart</button>
                         </div>
                     </div>
@@ -76,13 +68,13 @@ const SingleProduct = () => {
             <div className="singleprod-footer">
                 <div className="singleprod-tag">Tags:</div>
                 <ul>
-                {product.tag_list.map((tag, index) => (
-                    <li
-                    key={`${tag}-${index}`}
-                    >
-                        {tag}
-                    </li>
-                ))}
+                    {product.tag_list.map((tag, index) => (
+                        <li
+                        key={`${tag}-${index}`}
+                        >
+                            {tag}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

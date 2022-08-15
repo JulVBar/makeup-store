@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../reducer/filtersSlice';
 import { setStartFetching, fetchAllProducts} from '../../reducer/productListSlice';
@@ -11,15 +10,14 @@ const Categories = () => {
     const { category } = useSelector(state => state.filters);
     const dispatch = useDispatch();
 
-    const onCategoryChange = useCallback(
+    const onCategoryChange = 
         (item) => {
             dispatch(setCategory(item));
             dispatch(setStartFetching());
             dispatch(fetchAllProducts(item));
             dispatch(setFirstPage());
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, []);
-
+        }
     return (
         <ul className='categories'>
             {CATEGORIES.map((item, index) => (
