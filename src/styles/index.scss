@@ -72,7 +72,11 @@ main {
 
 footer {
     flex: 0 0 31.25rem;
-    background: rgb(103, 178, 126);
+    display: flex;
+    background: url("../assets/misc/footer.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container {

@@ -58,7 +58,7 @@ const SingleProduct = () => {
                         </ul>
                     </div>
                     <div>
-                        <Counter/>
+                        {/* <Counter/> */}
                         <div className="singleprod-btn">
                             <button className="button-green">Add to cart</button>
                         </div>

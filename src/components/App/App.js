@@ -6,6 +6,7 @@ import MainLayout from '../../layout/MainLayout';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ShopPage = lazy(() => import('../pages/ShopPage'));
+const FavouritePage = lazy(() => import('../pages/FavouritePage'));
 const SingleProductPage = lazy(() => import('../pages/SingleProductPage'));
 const CheckOutPage = lazy(() => import('../pages/CheckOutPage'));
 const CartPage = lazy(() => import('../pages/CartPage'));
@@ -27,6 +28,14 @@ function App() {
                     element={
                     <Suspense fallback={<Preloader/>}>
                         <ShopPage />
+                    </Suspense>
+                    }
+                />
+                <Route
+                    path="favourite"
+                    element={
+                    <Suspense fallback={<Preloader/>}>
+                        <FavouritePage />
                     </Suspense>
                     }
                 />

@@ -1,29 +1,38 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../../reducer/cartSlice';
+import { addOrRemoveItemFromFav } from '../../../reducer/favouriteSlice';
 import { Link } from 'react-router-dom';
 import Icon from '../../Icon/Icon';
 
 import './productItem.scss';
 
 const ProductItem = ({
+    product,
     id,
     name,
     image_link,
     brand,
     productColors,
-    price
+    price,
 }) => {
     const [activeColor, setActiveColor] = useState(productColors[0]);
+    const { favs } = useSelector(state => state.favourite);
     const dispatch = useDispatch();
+    const isFavourite = favs? favs.find(obj => obj.id === id) : false;
 
     const onColorClick = (color) => {
         setActiveColor(color);
+    }
+    
+    const onFavouriteClick = () => {
+        dispatch(addOrRemoveItemFromFav(product));
     }
 
     const onClickAdd = () => {
         const item = {
             id,
+            vendor_code: id + activeColor.colour_name,
             name,
             image_link,
             brand,
@@ -37,17 +46,22 @@ const ProductItem = ({
     return (
         <li className="product-item">
             <div className="product-header">
-                <div className="product-fav">
-                    <Icon
-                        name="fullheart"
-                        className="product-icon-fav"
-                    />
-                </div>
+                {isFavourite && (
+                    <div className="product-fav">
+                        <Icon
+                            name="fullheart"
+                            className="product-icon-fav"
+                        />
+                    </div>
+                )}
                 <div className="product-img">
                     <img className="img-cover" src={image_link} alt={name} />
                 </div>
                 <div className="product-img product-img--hover">
-                    <div className="product-circle">
+                    <div 
+                        className="product-circle"
+                        onClick={onFavouriteClick}
+                    >
                         <Icon
                             name='heart'
                             className="product-icon"

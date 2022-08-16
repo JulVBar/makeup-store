@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import products from '../reducer/productListSlice';
 import filters from '../reducer/filtersSlice';
 import cart from '../reducer/cartSlice';
+import favourite from '../reducer/favouriteSlice';
 
 const stringMiddleware = () => (next) => (action) => {
     if (typeof action === 'string') {
@@ -13,7 +14,7 @@ const stringMiddleware = () => (next) => (action) => {
 };
 
 const store = configureStore({
-    reducer: {products, filters, cart},
+    reducer: {products, filters, cart, favourite},
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
     devTools: process.env.NODE_ENV !== 'production',
 })

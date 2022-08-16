@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductList, fetchAllProducts } from '../../reducer/productListSlice';
 import ProductItem from './ProductItem/ProductItem';
-import Skeleton from './ProductItem/Skeleton';
 import Loader from '../Loader/Loader';
 import Pagination from '../Pagination/Pagination';
 
@@ -28,16 +27,17 @@ const ProductList = () => {
         <>
         {isFetching ? <Loader/> : (
             <ul className="product-list">
-                {productList.map((item, index) => (isFetching ? <Skeleton key={item.id}/> : (
+                {productList.map((item, index) => (
                     <ProductItem
                         key={item.id}
+                        product={item}
                         id={item.id}
                         name={item.name}
                         image_link={item.image_link}
                         brand={item.brand}
                         productColors={item.product_colors}
                         price={item.price}
-                    />)
+                    />
                 ))}
             </ul>
             )}

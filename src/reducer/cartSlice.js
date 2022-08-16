@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCartFromLS } from "../utils/getCartFromLS";
+import { getCartFromStorage } from "../utils/getCartFromStorage";
 import { calcTotalPrice } from "../utils/calcTotalPrice";
 
-const initialState = getCartFromLS();
+const initialState = getCartFromStorage();
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
         addItem: (state, action) => {
-            const findItem = state.items.find((obj) => (obj.id === action.payload.id && obj.pickedUpColor.colour_name === action.payload.pickedUpColor.colour_name));
+            const findItem = state.items.find((obj) => obj.vendor_code === action.payload.vendor_code)
 
             if (findItem) {
                 findItem.count++;
@@ -19,27 +19,25 @@ const cartSlice = createSlice({
                 count: 1,
                 });
             }
+            localStorage.setItem('cart', JSON.stringify(state.items));
             state.totalPrice = calcTotalPrice(state.items);
         },
         minusItem(state, action) {
-            const findItem = state.items.find((obj) => obj.id === action.payload);
+            const findItem = state.items.find((obj) => obj.vendor_code === action.payload.vendor_code);
         
-            if (findItem) {
+            if (findItem && findItem.count > 1) {
                 findItem.count--;
             }
         
             state.totalPrice = calcTotalPrice(state.items);
         },
         removeItem(state, action) {
-            state.items = state.items.filter((obj) => obj.id !== action.payload);
+            state.items = state.items.filter((obj) => obj.vendor_code !== action.payload.vendor_code);
             state.totalPrice = calcTotalPrice(state.items);
+            localStorage.setItem('cart', JSON.stringify(state.items));
         },
-        clearItems(state) {
-            state.items = [];
-            state.totalPrice = 0;
-        },
-        selectCartItemById(state, action) {
-            state.cart.items.find((obj) => obj.id === action.payload.id && obj.pickedUpColor.colour_name === action.payload.pickedUpColor.colour_name)
+        selectCartItem(state, action) {
+            state.cart.items.find((obj) => obj.vendor_code === action.payload.vendor_code)
         }
     }
 });
@@ -52,7 +50,6 @@ export const {
     addItem,
     removeItem,
     minusItem,
-    clearItems,
-    selectCartItemById
+    selectCartItem
 } = actions;
 
