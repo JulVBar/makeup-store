@@ -1,8 +1,8 @@
 [
     {
         "id": "1",
-        "name": "Le Rouge Deep Velvet",
-        "brand": "GIVENCHY",
+        "name": "Помада",
+        "brand": "NYX",
         "category": "Lipstick",
         "product_type": "Lipstick",
         "price": 10.9,
@@ -77,13 +77,13 @@
     },
     {
         "id": "2",
-        "name": "Glow mania",
-        "brand": "Л'Этуаль",
-        "category": "Lipstick",
-        "product_type": "Lipstick",
+        "name": "Блаш",
+        "brand": "NYX",
+        "category": "Blush",
+        "product_type": "Blush",
         "price": 12,
         "raiting": 5,
-        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/LT0335837GT.jpg",
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/MPL034188_mainGT.jpg",
         "tag_list": ["Vegan", "Gluten free", "Recycle"],
         "product_colors": [{
             "colour_name": "Sintia",
@@ -104,22 +104,6 @@
         {
             "colour_name": "Reddi",
             "hex_value": "#B4402C"
-        },
-        {
-            "colour_name": "Alba",
-            "hex_value": "#AB3A47"
-        },
-        {
-            "colour_name": "Sugar pink",
-            "hex_value": "#AB3A47"
-        },
-        {
-            "colour_name": "Dark night",
-            "hex_value": "#AB3A47"
-        },
-        {
-            "colour_name": "Simply red",
-            "hex_value": "#AB3A47"
         }],
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
@@ -306,7 +290,7 @@
     {
         "id": "7",
         "name": "Creme Puff",
-        "brand": "AX FACTOR",
+        "brand": "MAX FACTOR",
         "category": "Blush",
         "product_type": "Dry blush",
         "price": 14.4,
@@ -772,6 +756,58 @@
         {
             "colour_name": "Dark night",
             "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "19",
+        "name": "Creme Puff",
+        "brand": "AX FACTOR",
+        "category": "Blush",
+        "product_type": "Dry blush",
+        "price": 14.4,
+        "raiting": 3.5,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/MXF8739MF_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Reddi",
+            "hex_value": "#B4402C"
+        },
+        {
+            "colour_name": "Alba",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Sugar pink",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Dark night",
+            "hex_value": "#AB3A47"
+        },
+        {
+            "colour_name": "Simply red",
+            "hex_value": "#AB3A47"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        "id": "20",
+        "name": "Румяна для лица Blush Cheek Colour",
+        "brand": "LAMEL PROFESSIONAL",
+        "category": "Blush",
+        "product_type": "Dry blush",
+        "price": 12.3,
+        "raiting": 4.9,
+        "image_link": "https://www.letu.ru/common/img/uploaded/skuImageFolder/LML000130_mainGT.jpg",
+        "tag_list": ["Vegan", "Gluten free", "Recycle"],
+        "product_colors": [{
+            "colour_name": "Brita",
+            "hex_value": "#B75372"
         },
         {
             "colour_name": "Simply red",

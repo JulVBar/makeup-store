@@ -1,17 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../reducer/filtersSlice';
-import { setStartFetching } from '../../reducer/productListSlice';
+import { setPiece } from '../../reducer/productListSlice';
 import './pagination.scss';
 
 const Pagination = ({allProducts}) => {
-    const { page } = useSelector(state => state.filters);
+    const { page, filteredList } = useSelector(state => state.filters);
     const dispatch = useDispatch();
-    const pages = [...Array(Math.ceil(allProducts.length / 9)).keys()].map(x => ++x);
-
+    const isFilteredList= filteredList.length > 0;
+    const pages = isFilteredList ? 
+        [...Array(Math.ceil(filteredList.length / 9)).keys()].map(x => ++x) 
+        : [...Array(Math.ceil(allProducts.length / 9)).keys()].map(x => ++x);
+    
     const onPageChange = (item) => {
+        dispatch(setPiece({
+            start: 9 * (item - 1),
+            end: 9 * (item)
+        }));
         dispatch(setPage(item));
-        dispatch(setStartFetching());
-        window.scrollTo(0, 0);
+        document.getElementById('filtersHeader').scrollIntoView({block: "center", behavior: "smooth"});
     }
 
     return (

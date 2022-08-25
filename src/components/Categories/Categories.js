@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../reducer/filtersSlice';
-import { setStartFetching, fetchAllProducts} from '../../reducer/productListSlice';
 import { setFirstPage } from '../../reducer/filtersSlice';
 import { CATEGORIES } from '../../constants/categoriesConstants';
 
@@ -10,16 +9,13 @@ const Categories = () => {
     const { category } = useSelector(state => state.filters);
     const dispatch = useDispatch();
 
-    const onCategoryChange = 
-        (item) => {
-            dispatch(setCategory(item));
-            dispatch(setStartFetching());
-            dispatch(fetchAllProducts(item));
-            dispatch(setFirstPage());
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }
+    const onCategoryChange = (item) => {
+        dispatch(setCategory(item));
+        dispatch(setFirstPage());
+    }
+    
     return (
-        <ul className='categories'>
+        <ul className="categories">
             {CATEGORIES.map((item, index) => (
                 <li 
                     className={category === item.name ? "categories-item active" : "categories-item"}

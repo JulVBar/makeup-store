@@ -5,3 +5,22 @@
     border: 1px solid $light-grey;
     margin-right: 1rem;
 }
+
+.filter {
+    &List {
+        padding: 0.7rem;
+    }
+    &Title {
+        font-size: 1.3rem;
+        padding: 1rem;
+        border-bottom: 1px solid $light-grey;
+    }
+    &Btn {
+        padding: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        button {
+            top: 2rem;
+        }
+    }
+}

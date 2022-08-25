@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllProducts } from '../../reducer/productListSlice';
 import products from '../../assets/headers/products.svg';
 import Categories from '../Categories/Categories';
 import ProductList from '../ProductList/ProductList';
@@ -8,6 +10,15 @@ import FiltersHeader from '../FiltersHeader/FiltersHeader';
 import styles from './shopPage.module.scss';
 
 const ShopPage = () => {
+    const { category, sortParams } = useSelector(state => state.filters);
+    const dispatch = useDispatch();
+    const params = { ...sortParams, category };
+
+    useEffect(() => {
+        dispatch(fetchAllProducts(params));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [category, sortParams]);
+
     useEffect(() => {
         window.scrollTo(0,0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
