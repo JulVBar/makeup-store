@@ -1,17 +1,18 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Preloader from '../Preloader/Preloader';
-import MainLayout from '../../layout/MainLayout';
+import Preloader from './components/Preloader/Preloader';
+import MainLayout from './layout/MainLayout';
+import { FC } from 'react';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
-const ShopPage = lazy(() => import('../pages/ShopPage'));
-const FavouritePage = lazy(() => import('../pages/FavouritePage'));
-const SingleProductPage = lazy(() => import('../pages/SingleProductPage'));
-const CheckOutPage = lazy(() => import('../pages/CheckOutPage'));
-const CartPage = lazy(() => import('../pages/CartPage'));
+const HomePage = lazy(() => import('./components/pages/HomePage'));
+const ShopPage = lazy(() => import('./components/pages/ShopPage'));
+const FavouritePage = lazy(() => import('./components/pages/FavouritePage'));
+const SingleProductPage = lazy(() => import('./components/pages/SingleProductPage'));
+const CheckOutPage = lazy(() => import('./components/pages/CheckOutPage'));
+const CartPage = lazy(() => import('./components/pages/CartPage'));
 
-function App() {
+const App: FC = () => {
     return (
         <Routes>
             <Route path="/" element={<MainLayout />}>
@@ -62,7 +63,7 @@ function App() {
                             <SingleProductPage />
                         </Suspense>
                     }
-                    />
+                />
             </Route>
         </Routes>
     );

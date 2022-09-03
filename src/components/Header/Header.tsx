@@ -1,11 +1,10 @@
+import { FC } from 'react';
 import HeaderIcons from './HeaderIcons/HeaderIcons';
 import HeaderNavigation from './HeaderNavigation/HeaderNavigation';
-
 import logo from '../../assets/logo/logo.svg';
-
 import './header.scss';
 
-const Header = () => {
+const Header: FC = () => {
     return (
         <header className='header'>
             <div className="header-container">

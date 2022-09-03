@@ -4,13 +4,14 @@ import { setSortParams,
         setSortByPriceToHigh,
         setSortByPriceToLow,
         setSortByRaiting,
-        setSortByDefault} from '../../../reducer/filtersSlice';
+        setSortByDefault} from '../../../reducer/filtersReducer/filtersSlice';
+import { filtersSelector } from '../../../reducer/filtersReducer/selectors';
 import { SORT_PARAMS } from '../../../constants/filtersConstants';
 import Icon from '../../Icon/Icon';
 import styles from './filterSort.module.scss';
 
 const FilterSort = () => {
-    const { sortParams, filteredList } = useSelector(state => state.filters);
+    const { sortParams, filteredList } = useSelector(filtersSelector);
     const isFilteredList = filteredList.length > 0;
     const dispatch = useDispatch();
 

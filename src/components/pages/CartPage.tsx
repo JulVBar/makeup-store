@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { useEffect } from 'react';
 import cartTitleImg from '../../assets/headers/cart.svg';
 import Cart from '../Cart/Cart';
 
-const CartPage = () => {
+const CartPage: FC = () => {
     
     useEffect(() => {
         window.scrollTo(0,0);

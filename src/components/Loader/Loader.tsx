@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import './loader.scss';
 
-const Loader = () => {
+const Loader: FC = () => {
 
     return (
         <div className="cssload-loader">

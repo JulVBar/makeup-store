@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
+import { ProductState, ParamsObj } from "./types";
 
-const initialState = {
-    productList: [],
+const initialState: ProductState = {
     allProducts: [],
-    isFetching: true,
+    // isFetching: true,
     piece: {
         start: 0,
         end: 9
@@ -13,7 +13,7 @@ const initialState = {
 
 export const fetchAllProducts = createAsyncThunk(
     'products/fetchAllProducts',
-    async (params) => {
+    async (params: ParamsObj ) => {
         const { category, sort, order } = params;
         const url= `https://62f0bd3157311485d135bea7.mockapi.io/products?category=${category}&sortBy=${sort}&order=${order}`;
         const response = await axios.get(url);
@@ -39,13 +39,13 @@ const productListSlice = createSlice({
         builder
         // .addCase(fetchAllProducts.pending)
         .addCase(fetchAllProducts.pending, (state) => {
-            state.isFetching = true;
+            // state.isFetching = true;
         },)
         .addCase(fetchAllProducts.fulfilled, (state, action) => {
             state.allProducts = action.payload;
-            state.isFetching = false;
+            // state.isFetching = false;
         },)
-        .addCase(fetchAllProducts.rejected)
+        .addCase(fetchAllProducts.rejected, (state) => {},)
         .addDefaultCase(() => {})
     }
 });
@@ -55,9 +55,8 @@ const {actions, reducer} = productListSlice;
 export default reducer;
 
 export const {
-    setProductList,
     setAllProducts,
-    setStartFetching,
+    // setStartFetching,
     setPiece
 } = actions;
 

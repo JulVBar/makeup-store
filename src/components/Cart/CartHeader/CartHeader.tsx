@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import styles from './cartHeader.module.scss';
 
-const CartHeader = () => {
+const CartHeader: FC = () => {
     return (
         <div className={styles.header}>
             <div className={styles.product}>Product</div>

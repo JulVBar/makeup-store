@@ -1,4 +1,9 @@
-export const NAVLINKS = [
+type NavlinkItem = {
+    name: string;
+    path: string;
+}
+
+export const NAVLINKS: NavlinkItem[] = [
     {
         name: 'Home',
         path: '/'

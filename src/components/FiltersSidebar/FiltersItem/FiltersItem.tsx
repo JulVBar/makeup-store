@@ -1,7 +1,16 @@
+import { FC } from 'react';
 import classnames from 'classnames';
 import styles from './filtersItem.module.scss';
 
-const FiltersItem = ({ name, count, value, checked, onChange }) => {
+type FiltersItemProps = {
+    name: string;
+    count: number;
+    value: string;
+    checked: boolean;
+    onChange: () => void;
+}
+
+const FiltersItem: FC<FiltersItemProps> = ({ name, count, value, checked, onChange }) => {
     let cn = classnames(styles.filterName, !count ? styles.disabled : '');
     return (
         <li className={styles.filterItem}>
@@ -11,7 +20,6 @@ const FiltersItem = ({ name, count, value, checked, onChange }) => {
                     type="checkbox"
                     value={value}
                     id={name}
-                    count={count}
                     checked={checked}
                     onChange={onChange}
                     disabled={!count ? true : false}

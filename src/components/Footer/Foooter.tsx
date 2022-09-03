@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SOCIAL_ICONS, CONTACTS, FOOTER_NAV } from '../../constants/footerConstants';
 import Icon from '../Icon/Icon';
@@ -5,9 +6,7 @@ import logo from '../../assets/logo/logo.svg';
 import leaf from '../../assets/misc/leaf.svg';
 import styles from './footer.module.scss';
 
-const Footer = () => {
-    
-
+const Footer: FC = () => {
     return (
         <footer className="footer">
             <div className="container">

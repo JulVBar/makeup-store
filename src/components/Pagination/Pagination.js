@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../../reducer/filtersSlice';
-import { setPiece } from '../../reducer/productListSlice';
+import { setPage } from '../../reducer/filtersReducer/filtersSlice';
+import { setPiece } from '../../reducer/productListReducer/productListSlice';
 import './pagination.scss';
 
 const Pagination = ({allProducts}) => {

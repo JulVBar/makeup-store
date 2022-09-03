@@ -60,10 +60,6 @@ const filterSlice = createSlice({
     }
 });
 
-function sort() {
-    
-}
-
 const {actions, reducer} = filterSlice;
 
 export default reducer;

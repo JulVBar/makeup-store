@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategory } from '../../reducer/filtersSlice';
-import { setFirstPage } from '../../reducer/filtersSlice';
+import { setCategory } from '../../reducer/filtersReducer/filtersSlice';
+import { setFirstPage } from '../../reducer/filtersReducer/filtersSlice';
+import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { CATEGORIES } from '../../constants/categoriesConstants';
 
 import './categories.scss';
 
 const Categories = () => {
-    const { category } = useSelector(state => state.filters);
+    const { category } = useSelector(filtersSelector);
     const dispatch = useDispatch();
 
-    const onCategoryChange = (item) => {
-        dispatch(setCategory(item));
+    const onCategoryChange = (category: string): void => {
+        dispatch(setCategory(category));
         dispatch(setFirstPage());
     }
     

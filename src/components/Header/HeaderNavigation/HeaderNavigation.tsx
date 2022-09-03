@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { NAVLINKS } from '../../../constants/constants';
 import { NavLink } from 'react-router-dom';
 
 import './headerNavigation.scss';
 
-const HeaderNavigation = () => {
+const HeaderNavigation: FC = () => {
     return (
         <ul className="header-nav">
             {NAVLINKS.map((item, index) => (

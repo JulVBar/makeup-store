@@ -1,19 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilteredList, setFilterBrand, setFilterType } from '../../reducer/filtersSlice';
+import { setFilteredList, setFilterBrand, setFilterType } from '../../reducer/filtersReducer/filtersSlice';
 import { sortByFilters } from '../../utils/sortingFunction';
+import { filtersSelector } from '../../reducer/filtersReducer/selectors';
+import { productsSelector } from '../../reducer/productListReducer/selectors';
 import FiltersItem from './FiltersItem/FiltersItem';
 import styles from './filtersSidebar.module.scss';
 
 const FiltersSidebar = () => {
-    const { allProducts } = useSelector(state => state.products);
-    const { filtersBrand, filtersType } = useSelector(state => state.filters);
+    const { allProducts } = useSelector(productsSelector);
+    const { filtersBrand, filtersType } = useSelector(filtersSelector);
     const dispatch = useDispatch();
     const [brandCheckboxes, setBrandCheckboxes] = useState([]);
     const [typesCheckboxes, setTypeCheckboxes] = useState([]);
 
     const isResetButtonActive = brandCheckboxes.length > 0 || typesCheckboxes.length > 0;
     let brands = [...new Set(allProducts.map(el => el.brand))].sort();
+    // Array.from(new Set<Array<string>>(allProducts.map(el:  => el.brand))).sort();
     let types = [...new Set(allProducts.map(el => el.product_type))].sort();
 
     useEffect(()=>{

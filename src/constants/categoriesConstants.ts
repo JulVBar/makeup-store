@@ -11,7 +11,14 @@ import mascaraImgHover from '../assets/categories/mascara-hover.jpg';
 import nailpolishImg from '../assets/categories/nailpolish.jpg';
 import nailpolishImgHover from '../assets/categories/nailpolish-hover.jpg';
 
-export  const CATEGORIES = [
+export type CategoryItem = {
+    name: string;
+    id: string;
+    imgPath: string;
+    imgPathHover: string;
+}
+
+export const CATEGORIES: CategoryItem[] = [
     {
         name: 'Blush',
         id: 'blush',

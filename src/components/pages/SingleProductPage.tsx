@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, FC } from 'react';
 import SingleProduct from '../SingleProduct/SingleProduct';
 
-const ShopPage = () => {
+const ShopPage: FC = () => {
     useEffect(() => {
         window.scrollTo(0,0);
     // eslint-disable-next-line react-hooks/exhaustive-deps

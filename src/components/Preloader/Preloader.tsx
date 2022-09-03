@@ -1,9 +1,9 @@
+import { FC } from 'react';
 import styles from './preloader.module.scss';
 
-const Preloader = () => {
+const Preloader: FC = () => {
     return (
         <div className={styles.preloader}>
-            
             <div className={styles.preloaderText}>
                 <h1 className={styles.preloaderTitle}>Natural Cosmetics</h1>
                 <span>L</span>

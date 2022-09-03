@@ -1,11 +1,13 @@
-import axios from 'axios';
+import { FC, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Counter from '../Counter/Counter';
+import { ProductItem } from '../../reducer/productListReducer/types';
+import axios from 'axios';
+
 import './singleProduct.scss';
 
-const SingleProduct = () => {
-    const [product, setProduct] = useState('');
+const SingleProduct: FC = () => {
+    const [product, setProduct] = useState<ProductItem>();
+
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -22,7 +24,7 @@ const SingleProduct = () => {
         }
     
     fetchProduct();
-    }, []);
+    }, [id, navigate]);
 
     if (!product) {
         return <>Загрузка...</>;
@@ -45,7 +47,7 @@ const SingleProduct = () => {
                         <ul className="singleprod-palet">
                             {product.product_colors.map((color, index) => (
                                 <li
-                                key={`${color.name}-${index}`}
+                                    key={`${color.colour_name}-${index}`}
                                 >
                                     <div
                                         className="singleprod-color"
@@ -58,7 +60,6 @@ const SingleProduct = () => {
                         </ul>
                     </div>
                     <div>
-                        {/* <Counter/> */}
                         <div className="singleprod-btn">
                             <button className="button-green">Add to cart</button>
                         </div>

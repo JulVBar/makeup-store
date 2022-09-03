@@ -1,7 +1,12 @@
+import { FC } from 'react';
 import IconsSVG from './icons.svg';
 
-function Icon ({name, className}) {
+type IconProps = {
+    name: string;
+    className: string;
+}
 
+const Icon: FC<IconProps> = ({name, className}) => {
     return(
         <svg 
             className={`icon icon-${name} ${className}`} 
