@@ -19,8 +19,6 @@ const HeaderNavigation: FC = () => {
                             {item.name}
                         </NavLink>
                     </li>
-                
-                
             ))}
         </ul>
     )

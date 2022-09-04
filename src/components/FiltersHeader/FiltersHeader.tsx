@@ -1,14 +1,14 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { productsSelector } from '../../reducer/productListReducer/selectors';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import FilterSort from './FilterSort/FilterSort';
 import styles from './filtersHeader.module.scss';
-// использовать лэйаут хук
-const FiltersHeader = () => {
+
+const FiltersHeader: FC = () => {
     const { allProducts } = useSelector(productsSelector);
-    const { filteredList } = useSelector(filtersSelector);
+    const { filteredList, page } = useSelector(filtersSelector);
     const isFiltredList = filteredList.length > 0;
-    const { page } = useSelector(state => state.filters);
     
     return (
         <div className={styles.header} id="filtersHeader">

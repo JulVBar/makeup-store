@@ -1,14 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getCartFromStorage } from "../utils/getCartFromStorage";
-import { calcTotalPrice } from "../utils/calcTotalPrice";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getCartFromStorage } from "../../utils/getCartFromStorage";
+import { calcTotalPrice } from "../../utils/calcTotalPrice";
+import { CartState, CartItemType } from "./types";
 
-const initialState = getCartFromStorage();
+const initialState: CartState = getCartFromStorage();
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addItem: (state, action) => {
+        addItem: (state, action: PayloadAction<CartItemType>) => {
             const findItem = state.items.find((obj) => obj.vendor_code === action.payload.vendor_code)
 
             if (findItem) {
@@ -22,7 +23,7 @@ const cartSlice = createSlice({
             localStorage.setItem('cart', JSON.stringify(state.items));
             state.totalPrice = calcTotalPrice(state.items);
         },
-        minusItem(state, action) {
+        minusItem(state, action: PayloadAction<CartItemType>) {
             const findItem = state.items.find((obj) => obj.vendor_code === action.payload.vendor_code);
         
             if (findItem && findItem.count > 1) {
@@ -31,13 +32,13 @@ const cartSlice = createSlice({
         
             state.totalPrice = calcTotalPrice(state.items);
         },
-        removeItem(state, action) {
+        removeItem(state, action: PayloadAction<CartItemType>) {
             state.items = state.items.filter((obj) => obj.vendor_code !== action.payload.vendor_code);
             state.totalPrice = calcTotalPrice(state.items);
             localStorage.setItem('cart', JSON.stringify(state.items));
         },
-        selectCartItem(state, action) {
-            state.cart.items.find((obj) => obj.vendor_code === action.payload.vendor_code)
+        selectCartItem(state, action: PayloadAction<CartItemType>) {
+            state.items.find((obj) => obj.vendor_code === action.payload.vendor_code)
         }
     }
 });

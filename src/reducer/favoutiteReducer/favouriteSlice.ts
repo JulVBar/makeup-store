@@ -1,13 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getFavFromStorage } from "../utils/getFavFromStorage";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getFavFromStorage } from "../../utils/getFavFromStorage";
+import { FavouriteState } from "./types";
+import { ProductItemType } from "../productListReducer/types";
 
-const initialState = getFavFromStorage();
+const initialState: FavouriteState = getFavFromStorage();
 
 const favouriteSlice = createSlice({
     name: 'favourite',
     initialState,
     reducers: {
-        addOrRemoveItemFromFav: (state, action) => {
+        addOrRemoveItemFromFav: (state, action: PayloadAction<ProductItemType>) => {
             const findItem = state.favs.find((obj) => obj.id === action.payload.id);
 
             if (!findItem) {

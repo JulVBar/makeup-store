@@ -1,6 +1,6 @@
-export const SOCIAL_ICONS = ['twitter', 'instagram', 'facebook', 'linkedin'];
+export const SOCIAL_ICONS: Array<string> = ['twitter', 'instagram', 'facebook', 'linkedin'];
 
-export const CONTACTS = [
+export const CONTACTS: Record<string, string>[] = [
     {
         icon: 'marker',
         label: 'Adress:',
@@ -18,7 +18,7 @@ export const CONTACTS = [
     }
 ];
 
-export const FOOTER_NAV = [
+export const FOOTER_NAV: Record<string, string>[] = [
     {
         label: 'Home',
         to: '/home'

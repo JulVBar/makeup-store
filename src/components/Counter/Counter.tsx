@@ -1,15 +1,21 @@
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { minusItem, addItem } from '../../reducer/cartSlice';
+import { minusItem, addItem } from '../../reducer/cartReducer/cartSlice';
+import { CartItemType } from '../../reducer/cartReducer/types';
 import styles from './counter.module.scss';
 
-const Counter = ({item}) => {
+type CounterProps = {
+    item: CartItemType;
+};
+
+const Counter: FC<CounterProps> = ({item}) => {
     const dispatch = useDispatch();
 
-    const onClickPlus = () => {
+    const onClickPlus = (): void => {
         dispatch(addItem(item));
     };
     
-    const onClickMinus = () => {
+    const onClickMinus = (): void => {
         dispatch(minusItem(item));
     };
 

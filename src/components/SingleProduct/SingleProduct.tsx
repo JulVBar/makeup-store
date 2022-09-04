@@ -1,12 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ProductItem } from '../../reducer/productListReducer/types';
+import { ProductItemType } from '../../reducer/productListReducer/types';
 import axios from 'axios';
-
 import './singleProduct.scss';
 
 const SingleProduct: FC = () => {
-    const [product, setProduct] = useState<ProductItem>();
+    const [product, setProduct] = useState<ProductItemType>();
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -14,12 +13,12 @@ const SingleProduct: FC = () => {
     useEffect(() => {
         async function fetchProduct() {
             try {
-                const response = await axios.get('https://62f0bd3157311485d135bea7.mockapi.io/products/' + id);
-                setProduct(response.data);
+                const response = await axios.get<ProductItemType>('https://62f0bd3157311485d135bea7.mockapi.io/products/' + id);
+                setProduct(response.data as ProductItemType);
             } catch (error) {
                 alert('Ошибка при получении продукта!');
                 navigate('/'); 
-                // navigate('/shop');
+                navigate('/shop');
             }
         }
     

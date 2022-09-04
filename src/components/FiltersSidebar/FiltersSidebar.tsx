@@ -1,22 +1,22 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilteredList, setFilterBrand, setFilterType } from '../../reducer/filtersReducer/filtersSlice';
+import { setCategoryReset, setFilteredListReset } from '../../reducer/filtersReducer/filtersSlice';
 import { sortByFilters } from '../../utils/sortingFunction';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { productsSelector } from '../../reducer/productListReducer/selectors';
 import FiltersItem from './FiltersItem/FiltersItem';
 import styles from './filtersSidebar.module.scss';
 
-const FiltersSidebar = () => {
+const FiltersSidebar: FC = () => {
     const { allProducts } = useSelector(productsSelector);
-    const { filtersBrand, filtersType } = useSelector(filtersSelector);
+    const { filtersBrand, filtersType, category } = useSelector(filtersSelector);
     const dispatch = useDispatch();
-    const [brandCheckboxes, setBrandCheckboxes] = useState([]);
-    const [typesCheckboxes, setTypeCheckboxes] = useState([]);
-
+    const [brandCheckboxes, setBrandCheckboxes] = useState<Array<string>>([]);
+    const [typesCheckboxes, setTypeCheckboxes] = useState<Array<string>>([]);
+    const isCategoryActive = !!(category);
     const isResetButtonActive = brandCheckboxes.length > 0 || typesCheckboxes.length > 0;
     let brands = [...new Set(allProducts.map(el => el.brand))].sort();
-    // Array.from(new Set<Array<string>>(allProducts.map(el:  => el.brand))).sort();
     let types = [...new Set(allProducts.map(el => el.product_type))].sort();
 
     useEffect(()=>{
@@ -24,6 +24,12 @@ const FiltersSidebar = () => {
         dispatch(setFilterType(types));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, allProducts]);
+
+    useEffect(()=>{
+        setBrandCheckboxes([]);
+        setTypeCheckboxes([]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [category]);
 
     const onHandleReset = useCallback(() => {
         setBrandCheckboxes([]);
@@ -35,7 +41,7 @@ const FiltersSidebar = () => {
     },[dispatch, allProducts]);
 
     const onHandleChange = useCallback(
-        (item, type) => {
+        (item: string, type: string) => {
             const checkboxes = type === "brand" ? brandCheckboxes : typesCheckboxes;
             const findIdx = checkboxes.indexOf(item);
     
@@ -72,8 +78,26 @@ const FiltersSidebar = () => {
             sortByFilters,
             dispatch]);
 
+    const onShowAllProducts = useCallback(
+        () => {
+            dispatch(setCategoryReset());
+            setBrandCheckboxes([]);
+            setTypeCheckboxes([]);
+            dispatch(setFilteredListReset());
+        }, [dispatch]);
+
     return (
         <div className={styles.filters}>
+            {isCategoryActive && (
+                <div className={styles.resetCategoryBtn}>
+                    <button
+                        type="button"
+                        onClick={onShowAllProducts}
+                    >
+                        Show All Products
+                    </button>
+            </div>
+            )}
             {isResetButtonActive && (
                 <div className={styles.filterBtn}>
                     <button
@@ -91,11 +115,11 @@ const FiltersSidebar = () => {
                     {brands.map((item, i) => (
                         <FiltersItem 
                             key={item}
-                            type="checkbox"
                             value={item}
                             name={item}
-                            count={filtersBrand.includes(item) ? allProducts.filter(product => product.brand === item).length : ''}
-                            checked={brandCheckboxes.includes(item)}
+                            count={allProducts.filter(product => product.brand === item).length}
+                            isEnable={filtersBrand.includes(item)}
+                            checked={brandCheckboxes.includes(item) && filtersBrand.includes(item)}
                             onChange={()=>{onHandleChange(item, "brand")}}
                         />
                     ))}
@@ -107,11 +131,11 @@ const FiltersSidebar = () => {
                     {types.map((item, i) => (
                         <FiltersItem 
                             key={item}
-                            type="checkbox"
                             value={item}
                             name={item}
-                            count={filtersType.includes(item) ? allProducts.filter(product => product.product_type === item).length : ''}
-                            checked={typesCheckboxes.includes(item)}
+                            count={allProducts.filter(product => product.product_type === item).length}
+                            isEnable={filtersType.includes(item)}
+                            checked={typesCheckboxes.includes(item) && filtersType.includes(item)}
                             onChange={()=>{onHandleChange(item, "type")}}
                         />
                     ))}

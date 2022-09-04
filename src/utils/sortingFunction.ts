@@ -1,10 +1,14 @@
-export function sortByFilters(brandCheckboxes, typesCheckboxes, allProducts) {
-    let sortedByBrand = [];
-    let sortedByType = [];
+import { ProductItemType } from "../reducer/productListReducer/types";
+
+export function sortByFilters(brandCheckboxes: Array<string>,
+    typesCheckboxes: Array<string>,
+    allProducts: Array<ProductItemType>) {
+    let sortedByBrand: Array<ProductItemType> = [];
+    let sortedByType: Array<ProductItemType> = [];
 
     if (brandCheckboxes.length > 0 && typesCheckboxes.length < 1) {
         for (let i = 0; i < brandCheckboxes.length; i++){
-            let sorted = allProducts.filter(item => item.brand === brandCheckboxes[i]);
+            let sorted: Array<ProductItemType> = allProducts.filter(item => item.brand === brandCheckboxes[i]);
             sortedByBrand = sortedByBrand.concat(sorted);
         }
         return [...new Set(sortedByBrand)];

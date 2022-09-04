@@ -53,6 +53,9 @@
         text-transform: uppercase;
         &.disabled {
             color: $light-grey;
+            ~.filterQuant {
+                color: $light-grey !important;
+            }
         }
     }
     &Quant {

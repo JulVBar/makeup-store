@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearFav } from '../../reducer/favouriteSlice';
+import { clearFav } from '../../reducer/favoutiteReducer/favouriteSlice';
+import { favouriteSelector } from '../../reducer/favoutiteReducer/selectors';
 import favTitle from '../../assets/headers/favourite.svg';
 import FavouriteList from '../FavouriteList/FavouriteList';
 import NotFound from '../NotFound/NotFound';
 import { EMPTY_FAV } from '../../constants/emptyLayouts';
 
-const FavouritePage = () => {
-    const { favs } = useSelector(state => state.favourite);
+const FavouritePage: FC = () => {
+    const { favs } = useSelector(favouriteSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -15,7 +16,7 @@ const FavouritePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const onFavClear = () => {
+    const onFavClear = (): void => {
         dispatch(clearFav());
     }
     

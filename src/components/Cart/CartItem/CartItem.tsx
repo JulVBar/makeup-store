@@ -1,11 +1,17 @@
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeItem } from '../../../reducer/cartSlice';
+import { removeItem } from '../../../reducer/cartReducer/cartSlice';
+import { CartItemType } from '../../../reducer/cartReducer/types';
 import { Link } from 'react-router-dom';
 import Counter from '../../Counter/Counter';
 import Icon from '../../Icon/Icon';
 import styles from './сartItem.module.scss';
 
-const CartItem = ({item}) => {
+type CartItemProps = {
+    item: CartItemType;
+};
+
+const CartItem: FC<CartItemProps> = ({ item }) => {
 
     const dispatch = useDispatch();
 
@@ -19,7 +25,7 @@ const CartItem = ({item}) => {
         count,
     } = item;
 
-    const onDeleteItem = () => {
+    const onDeleteItem = (): void=> {
         dispatch(removeItem(item));
     };
 

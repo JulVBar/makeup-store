@@ -1,15 +1,15 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from '../../store';
+import { cartSelector } from '../../reducer/cartReducer/selectors';
 import CartHeader from './CartHeader/CartHeader';
 import CartItem from './CartItem/CartItem';
 import NotFound from '../NotFound/NotFound';
 import { EMPTY_CART } from '../../constants/emptyLayouts';
 import styles from './cart.module.scss';
 
-const Cart = () => {
-    // const { items, totalPrice } = useSelector((state:RootState) => state.cart);
-    const { items, totalPrice } = useSelector(state => state.cart);
+const Cart: FC = () => {
+    const { items, totalPrice } = useSelector(cartSelector);
     return (
         <div className="container">
             {items.length > 0 ? (

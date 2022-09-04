@@ -1,4 +1,4 @@
-export const SORT_PARAMS = [
+export const SORT_PARAMS: Record<string, string>[] = [
     {
         name: 'Default sorting',
         sort: '',

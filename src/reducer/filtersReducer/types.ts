@@ -1,5 +1,9 @@
-export type SortParamsItem = {
-    name: string;
-    sort: string;
-    order: string;
+import { ProductItemType } from "../productListReducer/types";
+export interface FiltersState {
+    sortParams: Record<string, string>;
+    category: string;
+    page: number;
+    filtersBrand: Array<string>;
+    filtersType: Array<string>;
+    filteredList: Array<ProductItemType>;
 }

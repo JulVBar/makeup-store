@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import products from '../reducer/productListReducer/productListSlice';
 import filters from '../reducer/filtersReducer/filtersSlice';
-import cart from '../reducer/cartSlice';
-import favourite from '../reducer/favouriteSlice';
+import cart from '../reducer/cartReducer/cartSlice';
+import favourite from '../reducer/favoutiteReducer/favouriteSlice';
 
 // const stringMiddleware = () => (next) => (action) => {
 //     if (typeof action === 'string') {

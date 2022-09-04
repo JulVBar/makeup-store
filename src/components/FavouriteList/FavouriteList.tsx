@@ -1,14 +1,15 @@
 import { useSelector } from 'react-redux';
+import { FC } from 'react';
 import ProductItem from '../ProductList/ProductItem/ProductItem';
-
+import { favouriteSelector } from '../../reducer/favoutiteReducer/selectors';
 import styles from './favouriteList.module.scss';
 
-const FavouriteList = () => {
-    const { favs } = useSelector(state => state.favourite);
+const FavouriteList: FC = () => {
+    const { favs } = useSelector(favouriteSelector);
 
     return (
         <ul className={styles.favouriteList}>
-            {favs.map((item, index) => (
+            {favs.map((item) => (
                 <ProductItem
                     key={item.id}
                     product={item}

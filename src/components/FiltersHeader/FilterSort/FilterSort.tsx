@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSortParams,
         setSortByPriceToHigh,
@@ -10,7 +10,7 @@ import { SORT_PARAMS } from '../../../constants/filtersConstants';
 import Icon from '../../Icon/Icon';
 import styles from './filterSort.module.scss';
 
-const FilterSort = () => {
+const FilterSort: FC = () => {
     const { sortParams, filteredList } = useSelector(filtersSelector);
     const isFilteredList = filteredList.length > 0;
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const FilterSort = () => {
     const [open, setOpen] = useState(false);
 
     const onClickListItem = useCallback(
-        (item) => {
+        (item: Record<string, string>) => {
             if (isFilteredList) {
                 if (item.name === 'Sort by price: low to high') dispatch(setSortByPriceToHigh());
                 if (item.name === 'Sort by price: high to low') dispatch(setSortByPriceToLow());

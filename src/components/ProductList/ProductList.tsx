@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { FC } from 'react';
 import { productsSelector } from '../../reducer/productListReducer/selectors';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import ProductItem from './ProductItem/ProductItem';
@@ -7,7 +8,7 @@ import Pagination from '../Pagination/Pagination';
 
 import './productList.scss';
 
-const ProductList = () => {
+const ProductList: FC = () => {
     const { allProducts, isFetching, piece } = useSelector(productsSelector);
     const { filteredList } = useSelector(filtersSelector);
     const isFilteredList = filteredList.length > 0;
@@ -19,7 +20,7 @@ const ProductList = () => {
                 <>
                     <ul className="product-list">
                         {isFilteredList ? (
-                            isFilteredList && filteredList.slice(start, end).map((item, index) => (
+                            isFilteredList && filteredList.slice(start, end).map((item) => (
                                 <ProductItem
                                     key={item.id}
                                     product={item}

@@ -24,3 +24,29 @@
         }
     }
 }
+
+.resetCategoryBtn {
+    color: $primary;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 0.1rem;
+        background: $primary;
+    }
+    button {
+        transition: color .2s linear;
+    }
+    &:hover button {
+        color: $primary;
+    }
+}
+

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
+import { FC } from 'react';
 
-const CheckOutPage = () => {
+const CheckOutPage: FC = () => {
     useEffect(() => {
         window.scrollTo(0,0);
     // eslint-disable-next-line react-hooks/exhaustive-deps

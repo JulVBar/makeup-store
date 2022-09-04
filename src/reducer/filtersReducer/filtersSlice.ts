@@ -1,6 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FiltersState } from "./types";
+import { ProductItemType} from "../productListReducer/types";
 
-const initialState = {
+const initialState: FiltersState  = {
     sortParams: {
         name: 'Default sorting',
         sort: '',
@@ -17,25 +19,28 @@ const filterSlice = createSlice({
     name: 'filters',
     initialState,
     reducers: {
-        setSortParams: (state, action) => {
+        setSortParams: (state, action: PayloadAction<Record<string, string>>) => {
             state.sortParams = action.payload;
         },
-        setCategory: (state, action) => {
+        setCategory: (state, action: PayloadAction<string>) => {
             state.category = action.payload;
         },
-        setPage: (state, action) => {
+        setCategoryReset: (state) => {
+            state.category = initialState.category;
+        },
+        setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
         setFirstPage: (state) => {
             state.page = initialState.page;
         },
-        setFilterBrand: (state, action) => {
+        setFilterBrand: (state, action: PayloadAction<Array<string>>) => {
             state.filtersBrand = action.payload;
         },
-        setFilterType: (state, action) => {
+        setFilterType: (state, action: PayloadAction<Array<string>>) => {
             state.filtersType = action.payload;
         },
-        setFilteredList: (state, action) => {
+        setFilteredList: (state, action: PayloadAction<ProductItemType[]>) => {
             if (state.sortParams.name === 'Sort by price: low to high') {
             state.filteredList = action.payload.sort((a, b) => a.price - b.price);}
             if (state.sortParams.name === 'Sort by price: high to low') {
@@ -44,6 +49,9 @@ const filterSlice = createSlice({
                 state.filteredList = action.payload.sort((a, b) => a.raiting - b.raiting);}
             if (state.sortParams.name === 'Default sorting') {
                 state.filteredList = action.payload.sort((a, b) => a.id - b.id);}
+        },
+        setFilteredListReset: (state) => {
+            state.filteredList = initialState.filteredList;
         },
         setSortByPriceToHigh: (state) => {
             state.filteredList = state.filteredList.sort((a, b) => a.price - b.price);
@@ -66,12 +74,14 @@ export default reducer;
 
 export const {
     setCategory,
+    setCategoryReset,
     setSortParams,
     setPage,
     setFirstPage,
     setFilterBrand,
     setFilterType,
     setFilteredList,
+    setFilteredListReset,
     setSortByPriceToHigh,
     setSortByPriceToLow,
     setSortByRaiting,

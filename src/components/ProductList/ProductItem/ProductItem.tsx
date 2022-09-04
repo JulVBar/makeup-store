@@ -1,31 +1,42 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../../../reducer/cartSlice';
-import { addOrRemoveItemFromFav } from '../../../reducer/favouriteSlice';
+import { addItem } from '../../../reducer/cartReducer/cartSlice';
+import { addOrRemoveItemFromFav } from '../../../reducer/favoutiteReducer/favouriteSlice';
+import { ProductColorItem, ProductItemType } from '../../../reducer/productListReducer/types';
+import { favouriteSelector } from '../../../reducer/favoutiteReducer/selectors';
 import { Link } from 'react-router-dom';
 import Icon from '../../Icon/Icon';
-
 import './productItem.scss';
 
-const ProductItem = ({
-    product,
+type ProductItemProps = {
+    id: number;
+    product: ProductItemType;
+    image_link: string;
+    name: string;
+    price: number;
+    brand: string;
+    productColors: Array<ProductColorItem>;
+}
+
+const ProductItem: FC<ProductItemProps> = ({
     id,
+    product,
     name,
     image_link,
     brand,
     productColors,
     price,
 }) => {
-    const [activeColor, setActiveColor] = useState(productColors[0]);
-    const { favs } = useSelector(state => state.favourite);
+    const [activeColor, setActiveColor] = useState<ProductColorItem>(productColors[0]);
+    const { favs } = useSelector(favouriteSelector);
     const dispatch = useDispatch();
     const isFavourite = favs? favs.find(obj => obj.id === id) : false;
 
-    const onColorClick = (color) => {
+    const onColorClick = (color: ProductColorItem): void => {
         setActiveColor(color);
     }
     
-    const onFavouriteClick = () => {
+    const onFavouriteClick = (): void => {
         dispatch(addOrRemoveItemFromFav(product));
     }
 
@@ -87,7 +98,7 @@ const ProductItem = ({
                 <ul className="product-palet">
                     {productColors.map((color, index) => (
                         <li
-                            key={`${color.name}-${index}`}  
+                            key={`${color.colour_name}-${index}`}  
                             className={activeColor.hex_value === color.hex_value ? "active" : ""}
                             onClick={()=>{onColorClick(productColors[index])}}
                         >

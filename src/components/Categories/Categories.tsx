@@ -1,18 +1,20 @@
+import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../reducer/filtersReducer/filtersSlice';
-import { setFirstPage } from '../../reducer/filtersReducer/filtersSlice';
+import { setFirstPage, setFilteredListReset } from '../../reducer/filtersReducer/filtersSlice';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { CATEGORIES } from '../../constants/categoriesConstants';
 
 import './categories.scss';
 
-const Categories = () => {
+const Categories: FC = () => {
     const { category } = useSelector(filtersSelector);
     const dispatch = useDispatch();
 
     const onCategoryChange = (category: string): void => {
         dispatch(setCategory(category));
         dispatch(setFirstPage());
+        dispatch(setFilteredListReset());
     }
     
     return (

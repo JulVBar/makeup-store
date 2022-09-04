@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
 import { fetchAllProducts } from '../../reducer/productListReducer/productListSlice';
 import products from '../../assets/headers/products.svg';
 import Categories from '../Categories/Categories';
@@ -7,16 +8,16 @@ import ProductList from '../ProductList/ProductList';
 import FiltersSidebar from '../FiltersSidebar/FiltersSidebar';
 import FiltersHeader from '../FiltersHeader/FiltersHeader';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
-
 import styles from './shopPage.module.scss';
+
 
 const ShopPage = () => {
     const { category, sortParams } = useSelector(filtersSelector);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const params = { ...sortParams, category };
 
     useEffect(() => {
-        dispatch(fetchAllProducts(params));
+        dispatch(fetchAllProducts(params)); 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category, sortParams]);
 

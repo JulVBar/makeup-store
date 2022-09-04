@@ -1,5 +1,3 @@
-import { SortParamsItem } from "../filtersReducer/types";
-
 export type PieceItem = {
     start: number;
     end: number;
@@ -10,7 +8,9 @@ export type ProductColorItem = {
     hex_value: string;
 };
 
-export type ProductItem = {
+export type ProductItemType = {
+    id: number;
+    raiting: number;
     image_link: string;
     name: string;
     price: number;
@@ -23,13 +23,7 @@ export type ProductItem = {
 }
 
 export interface ProductState {
-    allProducts: Array<ProductItem>;
+    allProducts: Array<ProductItemType>;
+    isFetching: boolean;
     piece: PieceItem;
-}
-
-export interface ParamsObj {
-    sort: string;
-    order: string;
-    category: string;
-    name: string;
 }

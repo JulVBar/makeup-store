@@ -1,4 +1,5 @@
 import { calcTotalPrice } from './calcTotalPrice';
+import { CartItemType } from "../reducer/cartReducer/types";
 
 export const getCartFromStorage = () => {
     const data = localStorage.getItem('cart');
@@ -6,7 +7,7 @@ export const getCartFromStorage = () => {
     const totalPrice = calcTotalPrice(items);
 
     return {
-        items,
+        items: items as CartItemType[],
         totalPrice,
     };
 };
