@@ -8,7 +8,8 @@ const initialState: ProductState = {
     piece: {
         start: 0,
         end: 9
-    }
+    },
+    priceFilter: [0, 100],
 }
 
 export const fetchAllProducts = createAsyncThunk(
@@ -16,7 +17,7 @@ export const fetchAllProducts = createAsyncThunk(
     async (params: Record<string, string> ) => {
         const { category, sort, order } = params;
         const url= `https://62f0bd3157311485d135bea7.mockapi.io/products?category=${category}&sortBy=${sort}&order=${order}`;
-        const { data } = await axios.get<ProductItemType[]>(url) ;
+        const { data } = await axios.get<ProductItemType[]>(url);
         return data as ProductItemType[];
     }
 );
@@ -30,7 +31,10 @@ const productListSlice = createSlice({
         },
         setPiece: (state, action: PayloadAction<PieceItem>) => {
             state.piece = action.payload;
-        }
+        },
+        setPriceFilter: (state, action: PayloadAction<number[]>) => {
+            state.priceFilter = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -55,6 +59,7 @@ export default reducer;
 
 export const {
     setAllProducts,
-    setPiece
+    setPiece,
+    setPriceFilter
 } = actions;
 

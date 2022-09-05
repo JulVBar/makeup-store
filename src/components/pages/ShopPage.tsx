@@ -17,7 +17,7 @@ const ShopPage = () => {
     const params = { ...sortParams, category };
 
     useEffect(() => {
-        dispatch(fetchAllProducts(params)); 
+        dispatch(fetchAllProducts(params));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category, sortParams]);
 

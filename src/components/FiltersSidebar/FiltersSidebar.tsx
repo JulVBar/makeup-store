@@ -6,6 +6,7 @@ import { sortByFilters } from '../../utils/sortingFunction';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { productsSelector } from '../../reducer/productListReducer/selectors';
 import FiltersItem from './FiltersItem/FiltersItem';
+import PriceSlider from './PriceSlider/PriceSlider';
 import styles from './filtersSidebar.module.scss';
 
 const FiltersSidebar: FC = () => {
@@ -52,19 +53,20 @@ const FiltersSidebar: FC = () => {
             }
     
             type === "brand" ? setBrandCheckboxes([...checkboxes]) : setTypeCheckboxes([...checkboxes]);
-            
-            dispatch(setFilteredList(sortByFilters(brandCheckboxes, typesCheckboxes, allProducts)));
+
+            let newList = sortByFilters(brandCheckboxes, typesCheckboxes, allProducts);
+
+            console.log(newList)
+            dispatch(setFilteredList(newList));
     
             if (type === "type") {
-                dispatch(setFilterBrand([...new Set(sortByFilters(brandCheckboxes, typesCheckboxes, allProducts)
-                    .map(el => el.brand))].sort()));
+                dispatch(setFilterBrand([...new Set(newList.map(el => el.brand))].sort()));
             } 
             if (typesCheckboxes.length < 1) {
                 dispatch(setFilterBrand([...new Set(allProducts.map(el => el.brand))].sort()));
             }
             if (type === "brand") {
-                dispatch(setFilterType([...new Set(sortByFilters(brandCheckboxes, typesCheckboxes, allProducts)
-                    .map(el => el.product_type))].sort()));
+                dispatch(setFilterType([...new Set(newList.map(el => el.product_type))].sort()));
             } 
             if (brandCheckboxes.length < 1) {
                 dispatch(setFilterType([...new Set(allProducts.map(el => el.product_type))].sort()));
@@ -140,6 +142,10 @@ const FiltersSidebar: FC = () => {
                         />
                     ))}
                 </ul>
+            </div>
+            <div className={styles.filter}>
+                <h3 className={styles.filterTitle}>Price</h3>
+                <PriceSlider/>
             </div>
             
         </div>

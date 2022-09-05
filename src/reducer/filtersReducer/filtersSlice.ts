@@ -12,7 +12,9 @@ const initialState: FiltersState  = {
     page: 1,
     filtersBrand: [],
     filtersType: [],
-    filteredList: []
+    filteredList: [],
+    // priceFilter: [0, 100],
+    isFiltered: false,
 }
 
 const filterSlice = createSlice({
@@ -41,14 +43,25 @@ const filterSlice = createSlice({
             state.filtersType = action.payload;
         },
         setFilteredList: (state, action: PayloadAction<ProductItemType[]>) => {
-            if (state.sortParams.name === 'Sort by price: low to high') {
-            state.filteredList = action.payload.sort((a, b) => a.price - b.price);}
-            if (state.sortParams.name === 'Sort by price: high to low') {
-                state.filteredList = action.payload.sort((a, b) => b.price - a.price);}
-            if (state.sortParams.name === 'Sort by popularity') {
-                state.filteredList = action.payload.sort((a, b) => a.raiting - b.raiting);}
-            if (state.sortParams.name === 'Default sorting') {
-                state.filteredList = action.payload.sort((a, b) => a.id - b.id);}
+            // if (state.sortParams.name === 'Sort by price: low to high') {
+            //     state.filteredList = action.payload.filter(item=>(item.price >= state.priceFilter[0] && item.price <= state.priceFilter[1])).sort((a, b) => a.price - b.price);}
+            // if (state.sortParams.name === 'Sort by price: high to low') {
+            //     state.filteredList = action.payload.filter(item=>(item.price >= state.priceFilter[0] && item.price <= state.priceFilter[1])).sort((a, b) => b.price - a.price);}
+            // if (state.sortParams.name === 'Sort by popularity') {
+            //     state.filteredList = action.payload.filter(item=>(item.price >= state.priceFilter[0] && item.price <= state.priceFilter[1])).sort((a, b) => a.raiting - b.raiting);}
+            // if (state.sortParams.name === 'Default sorting') {
+            //     state.filteredList = action.payload.filter(item=>(item.price >= state.priceFilter[0] && item.price <= state.priceFilter[1])).sort((a, b) => a.id - b.id);}
+
+                if (state.sortParams.name === 'Sort by price: low to high') {
+                    state.filteredList = action.payload.sort((a, b) => a.price - b.price);}
+                if (state.sortParams.name === 'Sort by price: high to low') {
+                    state.filteredList = action.payload.sort((a, b) => b.price - a.price);}
+                if (state.sortParams.name === 'Sort by popularity') {
+                    state.filteredList = action.payload.sort((a, b) => a.raiting - b.raiting);}
+                if (state.sortParams.name === 'Default sorting') {
+                    state.filteredList = action.payload.sort((a, b) => a.id - b.id);}
+
+            state.isFiltered = true;
         },
         setFilteredListReset: (state) => {
             state.filteredList = initialState.filteredList;
@@ -65,6 +78,9 @@ const filterSlice = createSlice({
         setSortByDefault: (state) => {
             state.filteredList = state.filteredList.sort((a, b) => a.id - b.id);
         },
+        // setPriceFilter: (state, action: PayloadAction<number[]>) => {
+        //     state.priceFilter = action.payload;
+        // },
     }
 });
 
@@ -85,6 +101,7 @@ export const {
     setSortByPriceToHigh,
     setSortByPriceToLow,
     setSortByRaiting,
-    setSortByDefault
+    setSortByDefault,
+    // setPriceFilter
 } = actions;
 

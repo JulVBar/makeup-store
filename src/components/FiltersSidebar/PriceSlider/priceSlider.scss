@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+
+.barClassName {
+    div {
+        background-color: $primary;
+    }
+}
+
+.handleClassName {
+    &:before {
+        border: 2px solid $primary;
+    }
+}
+
+.rs-input-group:not(.rs-input-group-disabled):hover {
+    border-color: $primary !important;
+}
+
+.rs-input-group:focus-within, .rs-input-group:not(.rs-input-group-disabled).rs-input-group-focus {
+    outline: 3px solid #97ab3f66 !important;
+    border-color: $primary !important;
+}
+
+.rs-slider-handle:hover:before {
+    box-shadow: 0 0 0 8px #97ab3f66 !important;
+}
+
+.rs-slider-handle:focus:before, .rs-slider-handle:hover:before {
+    box-shadow: 0 0 0 8px #97ab3f66 !important;
+}

@@ -9,7 +9,7 @@ import Pagination from '../Pagination/Pagination';
 import './productList.scss';
 
 const ProductList: FC = () => {
-    const { allProducts, isFetching, piece } = useSelector(productsSelector);
+    const { allProducts, isFetching, piece, priceFilter } = useSelector(productsSelector);
     const { filteredList } = useSelector(filtersSelector);
     const isFilteredList = filteredList.length > 0;
     const { start, end } = piece;
@@ -20,7 +20,7 @@ const ProductList: FC = () => {
                 <>
                     <ul className="product-list">
                         {isFilteredList ? (
-                            isFilteredList && filteredList.slice(start, end).map((item) => (
+                            filteredList.filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1])).slice(start, end).map((item) => (
                                 <ProductItem
                                     key={item.id}
                                     product={item}
@@ -33,7 +33,7 @@ const ProductList: FC = () => {
                                 />
                             ))
                         ) : (
-                            allProducts.slice(start, end).map((item, index) => (
+                            allProducts.filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1])).slice(start, end).map((item, index) => (
                                 <ProductItem
                                     key={item.id}
                                     product={item}

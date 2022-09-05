@@ -4,6 +4,7 @@ import { setPage } from '../../reducer/filtersReducer/filtersSlice';
 import { setPiece } from '../../reducer/productListReducer/productListSlice';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { ProductItemType } from '../../reducer/productListReducer/types';
+import { productsSelector } from '../../reducer/productListReducer/selectors';
 import './pagination.scss';
 
 type PaginationProps = {
@@ -12,11 +13,16 @@ type PaginationProps = {
 
 const Pagination: FC<PaginationProps> = ({allProducts}) => {
     const { page, filteredList } = useSelector(filtersSelector);
+    const { priceFilter } = useSelector(productsSelector);
     const dispatch = useDispatch();
     const isFilteredList= filteredList.length > 0;
     const pages: Array<number> = isFilteredList ? 
-        [...Array(Math.ceil(filteredList.length / 9)).keys()].map(x => ++x) 
-        : [...Array(Math.ceil(allProducts.length / 9)).keys()].map(x => ++x);
+        [...Array(Math.ceil(filteredList
+            .filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1])).length / 9)).keys()]
+            .map(x => ++x) 
+        : [...Array(Math.ceil(allProducts
+            .filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1])).length / 9)).keys()]
+            .map(x => ++x);
     
     const onPageChange = (item: number) => {
         dispatch(setPiece({

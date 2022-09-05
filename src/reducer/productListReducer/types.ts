@@ -26,4 +26,5 @@ export interface ProductState {
     allProducts: Array<ProductItemType>;
     isFetching: boolean;
     piece: PieceItem;
+    priceFilter: number[];
 }
