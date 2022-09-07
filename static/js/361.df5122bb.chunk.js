@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmakeup_store=self.webpackChunkmakeup_store||[]).push([[361],{6361:function(e,s,n){n.r(s);var c=n(2791),t=n(184);s.default=function(){return(0,c.useEffect)((function(){window.scrollTo(0,0)}),[]),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)("h1",{children:"This is CheckOutPage"}),(0,t.jsx)("div",{className:"container"})]})}}}]);
+//# sourceMappingURL=361.df5122bb.chunk.js.map
