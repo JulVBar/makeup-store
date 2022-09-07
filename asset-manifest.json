@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/makeup-store/static/css/main.d36bddce.css",
-    "main.js": "/makeup-store/static/js/main.1dbd7d96.js",
+    "main.js": "/makeup-store/static/js/main.40332960.js",
     "static/css/410.7420c51b.chunk.css": "/makeup-store/static/css/410.7420c51b.chunk.css",
     "static/js/410.008d5aed.chunk.js": "/makeup-store/static/js/410.008d5aed.chunk.js",
     "static/css/685.8dbed407.chunk.css": "/makeup-store/static/css/685.8dbed407.chunk.css",
@@ -43,7 +43,7 @@
     "index.html": "/makeup-store/index.html",
     "static/media/leaf.svg": "/makeup-store/static/media/leaf.fce3aacd96c2ca508b2fb98435fbe412.svg",
     "main.d36bddce.css.map": "/makeup-store/static/css/main.d36bddce.css.map",
-    "main.1dbd7d96.js.map": "/makeup-store/static/js/main.1dbd7d96.js.map",
+    "main.40332960.js.map": "/makeup-store/static/js/main.40332960.js.map",
     "410.7420c51b.chunk.css.map": "/makeup-store/static/css/410.7420c51b.chunk.css.map",
     "410.008d5aed.chunk.js.map": "/makeup-store/static/js/410.008d5aed.chunk.js.map",
     "685.8dbed407.chunk.css.map": "/makeup-store/static/css/685.8dbed407.chunk.css.map",
@@ -60,6 +60,6 @@
   },
   "entrypoints": [
     "static/css/main.d36bddce.css",
-    "static/js/main.1dbd7d96.js"
+    "static/js/main.40332960.js"
   ]
 }
