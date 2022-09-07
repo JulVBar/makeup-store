@@ -9,7 +9,6 @@ const initialState: ProductState = {
         start: 0,
         end: 9
     },
-    priceFilter: [0, 100],
 }
 
 export const fetchAllProducts = createAsyncThunk(
@@ -31,9 +30,6 @@ const productListSlice = createSlice({
         },
         setPiece: (state, action: PayloadAction<PieceItem>) => {
             state.piece = action.payload;
-        },
-        setPriceFilter: (state, action: PayloadAction<number[]>) => {
-            state.priceFilter = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -60,6 +56,5 @@ export default reducer;
 export const {
     setAllProducts,
     setPiece,
-    setPriceFilter
 } = actions;
 

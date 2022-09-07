@@ -1,19 +1,14 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { productsSelector } from '../../../reducer/productListReducer/selectors';
-import { filtersSelector } from '../../../reducer/filtersReducer/selectors';
+import { useDispatch } from 'react-redux';
+import { setPriceFilter } from '../../../reducer/filtersReducer/filtersSlice';
 import { RangeSlider, Row, InputGroup, InputNumber } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
-import { setPriceFilter } from '../../../reducer/productListReducer/productListSlice';
-import { setFilteredList } from '../../../reducer/filtersReducer/filtersSlice';
+
 import './priceSlider.scss';
 
 const PriceSlider = () => {
     const [value, setValue] = useState([0, 100]);
     const dispatch = useDispatch();
-    const { allProducts, priceFilter } = useSelector(productsSelector);
-    const { filteredList,  } = useSelector(filtersSelector);
-    const isFilteredList = filteredList.length > 0;
 
     return (
     <Row>
@@ -25,7 +20,6 @@ const PriceSlider = () => {
                 onChange={value => {
                     setValue(value);
                     dispatch(setPriceFilter(value));
-                    // dispatch(setFilteredList(isFilteredList ? filteredList.filter(item => (item.price >= priceFilter[0] && item.price <= priceFilter[1])) : allProducts.filter(item => (item.price >= priceFilter[0] && item.price <= priceFilter[1]))))
                 }}
                 barClassName="barClassName"
                 handleClassName="handleClassName"

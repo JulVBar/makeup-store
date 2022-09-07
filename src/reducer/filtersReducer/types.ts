@@ -6,6 +6,6 @@ export interface FiltersState {
     filtersBrand: Array<string>;
     filtersType: Array<string>;
     filteredList: Array<ProductItemType>;
-    // priceFilter: number[];
+    priceFilter: number[];
     isFiltered: boolean;
 }

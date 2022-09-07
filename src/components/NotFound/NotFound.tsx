@@ -14,7 +14,7 @@ const NotFound: FC<NotFoundProps> = ({ title, img, button, link}) => {
         <div className={styles.wrap}>
             <h1>{title}</h1>
             <div className={styles.picture}>
-                <img src={img} alt="emptyCart" />
+                <img src={img} alt={title} />
             </div>
             <Link to={link}>
                 <button className="button-green">{button}</button>

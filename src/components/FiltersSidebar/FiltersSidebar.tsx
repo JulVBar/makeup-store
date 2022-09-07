@@ -56,7 +56,6 @@ const FiltersSidebar: FC = () => {
 
             let newList = sortByFilters(brandCheckboxes, typesCheckboxes, allProducts);
 
-            console.log(newList)
             dispatch(setFilteredList(newList));
     
             if (type === "type") {
@@ -100,21 +99,22 @@ const FiltersSidebar: FC = () => {
                     </button>
             </div>
             )}
-            {isResetButtonActive && (
-                <div className={styles.filterBtn}>
-                    <button
-                        type="button"
-                        className="button-green"
-                        onClick={onHandleReset}
-                    >
-                        Reset All Filters
-                    </button>
-                </div>
-            )}
+            
+            <div className={styles.filterBtn}>
+                <button
+                    type="button"
+                    className="button-green"
+                    onClick={onHandleReset}
+                    disabled={!isResetButtonActive}
+                >
+                    Reset All Filters
+                </button>
+            </div>
+            
             <div className={styles.filter}>
                 <h3 className={styles.filterTitle}>Brand</h3>
                 <ul className={styles.filterList}>
-                    {brands.map((item, i) => (
+                    {brands.map((item) => (
                         <FiltersItem 
                             key={item}
                             value={item}
@@ -130,7 +130,7 @@ const FiltersSidebar: FC = () => {
             <div className={styles.filter}>
                 <h3 className={styles.filterTitle}>Type</h3>
                 <ul className={styles.filterList}>
-                    {types.map((item, i) => (
+                    {types.map((item) => (
                         <FiltersItem 
                             key={item}
                             value={item}

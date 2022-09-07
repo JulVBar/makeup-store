@@ -7,17 +7,20 @@ import styles from './filtersHeader.module.scss';
 
 const FiltersHeader: FC = () => {
     const { allProducts } = useSelector(productsSelector);
-    const { filteredList, page } = useSelector(filtersSelector);
-    const isFiltredList = filteredList.length > 0;
-    
+    const { filteredList, page, priceFilter } = useSelector(filtersSelector);
+    const isFilteredList = filteredList.length > 0;
+    const filteredAmount = filteredList.filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1])).length;
+    const allProductsAmount = allProducts.filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1])).length;
+    const isPages = filteredAmount > 0 || allProductsAmount > 0;
+
     return (
         <div className={styles.header} id="filtersHeader">
             <div className={styles.headerText}>
-                Find {isFiltredList ? filteredList.length : allProducts.length} products
+                Find {isFilteredList ? filteredAmount : allProductsAmount} products
             </div>
             <div className={styles.headerText}>
-                Showing {page} from {Math.ceil(isFiltredList ? 
-                    filteredList.length / 9 : allProducts.length / 9)} 
+                Showing {isPages ? page : 0} from {Math.ceil(isFilteredList ? 
+                    filteredAmount / 9 : allProductsAmount / 9)} 
                 pages
             </div>
             <FilterSort/>

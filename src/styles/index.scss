@@ -27,7 +27,7 @@ ul {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 img {
@@ -101,18 +101,6 @@ footer {
     }
 }
 
-// .button-green {
-//     background: $primary;
-//     color: $white;
-//     font-weight: 700;
-//     padding: 1rem 2rem;
-//     transition: all 0.2s linear;
-//     cursor: pointer;
-//     &:hover {
-//         background: darken($color: $primary, $amount: 10);
-//     }
-// }
-
 .button-green {
     position: relative;
     backface-visibility: hidden;
@@ -139,13 +127,13 @@ footer {
     &:hover:before {
         transform: scaleX(1);  
     }
-}
-
-.button-disabled {
-    background: $grey;
-    color: $white;
-    font-weight: 700;
-    padding: 1rem 2rem;
-    cursor: not-allowed;
-    transform: translateY(-20px);
+    &:disabled:hover::before {
+        transform: scaleX(0);  
+    }
+    &:disabled {
+        opacity: .7;
+        background: $light-grey;
+        color: $grey;
+        cursor: not-allowed;
+    }
 }

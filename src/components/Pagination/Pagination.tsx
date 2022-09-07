@@ -4,7 +4,6 @@ import { setPage } from '../../reducer/filtersReducer/filtersSlice';
 import { setPiece } from '../../reducer/productListReducer/productListSlice';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { ProductItemType } from '../../reducer/productListReducer/types';
-import { productsSelector } from '../../reducer/productListReducer/selectors';
 import './pagination.scss';
 
 type PaginationProps = {
@@ -12,8 +11,7 @@ type PaginationProps = {
 }
 
 const Pagination: FC<PaginationProps> = ({allProducts}) => {
-    const { page, filteredList } = useSelector(filtersSelector);
-    const { priceFilter } = useSelector(productsSelector);
+    const { page, filteredList, priceFilter } = useSelector(filtersSelector);
     const dispatch = useDispatch();
     const isFilteredList= filteredList.length > 0;
     const pages: Array<number> = isFilteredList ? 
