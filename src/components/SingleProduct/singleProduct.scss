@@ -2,6 +2,19 @@
 
 .singleprod {
     margin-bottom: 3rem;
+    position: relative;
+
+    &-fav {
+        position: absolute;
+        top: 0.9rem;
+        right: 0;
+        z-index: 99;
+        cursor: pointer;
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
     &-body {
         display: flex;
         margin-bottom: 2rem;
@@ -63,8 +76,9 @@
         li {
             display: flex;
             padding: 0.5rem;
+            border: 1px solid transparent;
             cursor: pointer;
-            &:first-child {
+            &.active {
                 border: 1px solid $primary;
             }
             &:not(:last-child) {

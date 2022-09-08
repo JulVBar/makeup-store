@@ -1,4 +1,9 @@
 import { ProductItemType } from "../productListReducer/types";
+
+export type PieceItem = {
+    start: number;
+    end: number;
+};
 export interface FiltersState {
     sortParams: Record<string, string>;
     category: string;
@@ -8,4 +13,5 @@ export interface FiltersState {
     filteredList: Array<ProductItemType>;
     priceFilter: number[];
     isFiltered: boolean;
+    piece: PieceItem;
 }

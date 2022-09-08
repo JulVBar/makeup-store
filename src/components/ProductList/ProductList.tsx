@@ -8,8 +8,8 @@ import Pagination from '../Pagination/Pagination';
 import './productList.scss';
 
 const ProductList: FC = () => {
-    const { allProducts, isFetching, piece } = useSelector(productsSelector);
-    const { filteredList, priceFilter } = useSelector(filtersSelector);
+    const { allProducts, isFetching } = useSelector(productsSelector);
+    const { filteredList, priceFilter, piece } = useSelector(filtersSelector);
     const isFilteredList = filteredList.length > 0;
     const filteredProducts = filteredList.filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1]));
     const fetchedProducts = allProducts.filter(item=>(item.price >= priceFilter[0] && item.price <= priceFilter[1]));

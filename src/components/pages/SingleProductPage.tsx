@@ -1,5 +1,7 @@
 import { useEffect, FC } from 'react';
+import { Link } from 'react-router-dom';
 import SingleProduct from '../SingleProduct/SingleProduct';
+import styles from './singleProductPage.module.scss';
 
 const ShopPage: FC = () => {
     useEffect(() => {
@@ -8,14 +10,19 @@ const ShopPage: FC = () => {
     }, []);
     
     return (
-        <>
-            <div className="pageTitle">
-                <h1>SingleProductPage</h1>
+        <div className="container">
+            <div className={styles.button}>
+                <Link to='/shop'>
+                <div className={styles.buttonArrow}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div className={styles.buttonText}>Back to shop</div>
+                </Link>
             </div>
-            <div className="container">
-                <SingleProduct/>
-            </div>
-        </>
+            <SingleProduct/>
+        </div>
     );
 }
 

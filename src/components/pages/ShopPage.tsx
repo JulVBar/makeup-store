@@ -8,11 +8,14 @@ import ProductList from '../ProductList/ProductList';
 import FiltersSidebar from '../FiltersSidebar/FiltersSidebar';
 import FiltersHeader from '../FiltersHeader/FiltersHeader';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
+import { productsSelector } from '../../reducer/productListReducer/selectors';
+import Loader from '../Loader/Loader';
 import styles from './shopPage.module.scss';
 
 
 const ShopPage = () => {
     const { category, sortParams } = useSelector(filtersSelector);
+    const { isFetching } = useSelector(productsSelector);
     const dispatch = useAppDispatch();
     const params = { ...sortParams, category };
 
@@ -33,15 +36,17 @@ const ShopPage = () => {
             </div>
             <div className="container">
                 <Categories />
-                <div className={styles.shopBody}>
-                    <FiltersSidebar />
-                    <div className={styles.shopContent}>
-                        <FiltersHeader/>
-                        <div className={styles.shopList}>
-                            <ProductList />
+                {isFetching ? <Loader/> : (
+                    <div className={styles.shopBody}>
+                        <FiltersSidebar />
+                        <div className={styles.shopContent}>
+                            <FiltersHeader/>
+                            <div className={styles.shopList}>
+                                <ProductList />
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </>
     );

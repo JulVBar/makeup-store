@@ -57,6 +57,7 @@
     &Item {
         font-family: $add-font;
         font-size: 0.9rem;
+        color: $dark-grey;
         margin-bottom: 1.3rem;
         padding-left: 6.5rem;
         line-height: 1.5rem;
@@ -87,6 +88,7 @@
 .navItem {
     font-family: $add-font;
     font-size: 0.9rem;
+    color: $dark-grey;
     line-height: 1.5rem;
     transition: fill .2s linear;
     &:hover {

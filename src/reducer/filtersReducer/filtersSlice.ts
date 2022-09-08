@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FiltersState } from "./types";
+import { FiltersState, PieceItem } from "./types";
 import { ProductItemType} from "../productListReducer/types";
 
 const initialState: FiltersState  = {
+    piece: {
+        start: 0,
+        end: 9
+    },
     sortParams: {
         name: 'Default sorting',
         sort: '',
@@ -21,6 +25,13 @@ const filterSlice = createSlice({
     name: 'filters',
     initialState,
     reducers: {
+        setPiece: (state, action: PayloadAction<PieceItem>) => {
+            state.piece = action.payload;
+        },
+        setResetActiveList: (state) => {
+            state.page = initialState.page;
+            state.piece = initialState.piece;
+        },
         setSortParams: (state, action: PayloadAction<Record<string, string>>) => {
             state.sortParams = action.payload;
         },
@@ -71,6 +82,9 @@ const filterSlice = createSlice({
         setPriceFilter: (state, action: PayloadAction<number[]>) => {
             state.priceFilter = action.payload;
         },
+        setPriceFilterReset: (state) => {
+            state.priceFilter = initialState.priceFilter;
+        },
     }
 });
 
@@ -79,6 +93,8 @@ const {actions, reducer} = filterSlice;
 export default reducer;
 
 export const {
+    setPiece,
+    setResetActiveList,
     setCategory,
     setCategoryReset,
     setSortParams,
@@ -92,6 +108,7 @@ export const {
     setSortByPriceToLow,
     setSortByRaiting,
     setSortByDefault,
-    setPriceFilter
+    setPriceFilter,
+    setPriceFilterReset
 } = actions;
 

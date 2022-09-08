@@ -1,14 +1,21 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setPriceFilter } from '../../../reducer/filtersReducer/filtersSlice';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPriceFilter, setResetActiveList } from '../../../reducer/filtersReducer/filtersSlice';
+import { filtersSelector } from '../../../reducer/filtersReducer/selectors';
 import { RangeSlider, Row, InputGroup, InputNumber } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
-
 import './priceSlider.scss';
+
 
 const PriceSlider = () => {
     const [value, setValue] = useState([0, 100]);
     const dispatch = useDispatch();
+    const { priceFilter } = useSelector(filtersSelector);
+
+    useEffect(()=>{
+        setValue(priceFilter);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [priceFilter]);
 
     return (
     <Row>
@@ -20,6 +27,7 @@ const PriceSlider = () => {
                 onChange={value => {
                     setValue(value);
                     dispatch(setPriceFilter(value));
+                    dispatch(setResetActiveList());
                 }}
                 barClassName="barClassName"
                 handleClassName="handleClassName"
@@ -39,6 +47,7 @@ const PriceSlider = () => {
                         }
                         setValue([+nextValue, +end]);
                         dispatch(setPriceFilter([+nextValue, +end]));
+                        dispatch(setResetActiveList());;
                     }}
                     style={{ width: '6rem' }}
                 />
@@ -54,6 +63,7 @@ const PriceSlider = () => {
                         }
                         setValue([+start, +nextValue]);
                         dispatch(setPriceFilter([+start, +nextValue]));
+                        dispatch(setResetActiveList());
                     }}
                     style={{ width: '6rem'}}
                 />

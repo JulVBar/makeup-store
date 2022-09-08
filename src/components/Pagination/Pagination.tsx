@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../../reducer/filtersReducer/filtersSlice';
-import { setPiece } from '../../reducer/productListReducer/productListSlice';
+import { setPage, setPiece } from '../../reducer/filtersReducer/filtersSlice';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { ProductItemType } from '../../reducer/productListReducer/types';
 import './pagination.scss';

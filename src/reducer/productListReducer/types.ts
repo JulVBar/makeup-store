@@ -1,8 +1,3 @@
-export type PieceItem = {
-    start: number;
-    end: number;
-};
-
 export type ProductColorItem = {
     colour_name: string;
     hex_value: string;
@@ -25,5 +20,4 @@ export type ProductItemType = {
 export interface ProductState {
     allProducts: Array<ProductItemType>;
     isFetching: boolean;
-    piece: PieceItem;
 }

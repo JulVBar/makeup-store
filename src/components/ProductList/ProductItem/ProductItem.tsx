@@ -56,28 +56,20 @@ const ProductItem: FC<ProductItemProps> = ({
 
     return (
         <li className="product-item">
-            <div className="product-header">
+            <div className="product-is-fav">
                 {isFavourite && (
-                    <div className="product-fav">
-                        <Icon
-                            name="fullheart"
-                            className="product-icon-fav"
-                        />
-                    </div>
+                    <Icon
+                    name="fullheart"
+                    className="product-icon-fav"
+                />
                 )}
+            </div>
+            
+            <div className="product-header">
                 <div className="product-img">
                     <img className="img-cover" src={image_link} alt={name} />
                 </div>
                 <div className="product-img product-img--hover">
-                    <div 
-                        className="product-circle"
-                        onClick={onFavouriteClick}
-                    >
-                        <Icon
-                            name='heart'
-                            className="product-icon"
-                        />
-                    </div>
                     <Link to={`/product/${id}`}>
                         <div className="product-circle">
                             <Icon
@@ -86,6 +78,22 @@ const ProductItem: FC<ProductItemProps> = ({
                             />
                         </div>
                     </Link>
+                    <div 
+                        className="product-fav"
+                        onClick={onFavouriteClick}
+                    >
+                        {isFavourite ? (
+                            <Icon
+                                name="fullheart"
+                                className="product-icon-fav"
+                            />
+                        ) : (
+                            <Icon
+                                name='heart'
+                                className="product-icon-fav"
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
             <div className="product-body">

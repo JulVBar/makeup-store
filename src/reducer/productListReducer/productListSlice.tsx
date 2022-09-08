@@ -1,14 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { ProductState, ProductItemType, PieceItem } from "./types";
+import { ProductState, ProductItemType } from "./types";
 
 const initialState: ProductState = {
     allProducts: [],
     isFetching: true,
-    piece: {
-        start: 0,
-        end: 9
-    },
 }
 
 export const fetchAllProducts = createAsyncThunk(
@@ -27,9 +23,6 @@ const productListSlice = createSlice({
     reducers: {
         setAllProducts: (state, action: PayloadAction<ProductItemType[]>) => {
             state.allProducts = action.payload;
-        },
-        setPiece: (state, action: PayloadAction<PieceItem>) => {
-            state.piece = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -55,6 +48,5 @@ export default reducer;
 
 export const {
     setAllProducts,
-    setPiece,
 } = actions;
 

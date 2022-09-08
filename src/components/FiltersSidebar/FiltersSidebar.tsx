@@ -1,7 +1,13 @@
 import { useState, useEffect, useCallback, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilteredList, setFilterBrand, setFilterType } from '../../reducer/filtersReducer/filtersSlice';
-import { setCategoryReset, setFilteredListReset } from '../../reducer/filtersReducer/filtersSlice';
+import { setFilteredList,
+    setFilterBrand,
+    setFilterType,
+    setCategoryReset,
+    setFilteredListReset,
+    setFirstPage,
+    setPriceFilterReset,
+    setResetActiveList } from '../../reducer/filtersReducer/filtersSlice';
 import { sortByFilters } from '../../utils/sortingFunction';
 import { filtersSelector } from '../../reducer/filtersReducer/selectors';
 import { productsSelector } from '../../reducer/productListReducer/selectors';
@@ -11,12 +17,12 @@ import styles from './filtersSidebar.module.scss';
 
 const FiltersSidebar: FC = () => {
     const { allProducts } = useSelector(productsSelector);
-    const { filtersBrand, filtersType, category } = useSelector(filtersSelector);
+    const { filtersBrand, filtersType, category, priceFilter } = useSelector(filtersSelector);
     const dispatch = useDispatch();
     const [brandCheckboxes, setBrandCheckboxes] = useState<Array<string>>([]);
     const [typesCheckboxes, setTypeCheckboxes] = useState<Array<string>>([]);
     const isCategoryActive = !!(category);
-    const isResetButtonActive = brandCheckboxes.length > 0 || typesCheckboxes.length > 0;
+    const isResetButtonActive = brandCheckboxes.length > 0 || typesCheckboxes.length > 0 || priceFilter[0] !== 0 || priceFilter[1] !== 100;
     let brands = [...new Set(allProducts.map(el => el.brand))].sort();
     let types = [...new Set(allProducts.map(el => el.product_type))].sort();
 
@@ -35,7 +41,8 @@ const FiltersSidebar: FC = () => {
     const onHandleReset = useCallback(() => {
         setBrandCheckboxes([]);
         setTypeCheckboxes([]);
-        dispatch(setFilteredList([]));
+        dispatch(setFilteredListReset());
+        dispatch(setPriceFilterReset());
         dispatch(setFilterBrand(brands));
         dispatch(setFilterType(types));
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,6 +77,7 @@ const FiltersSidebar: FC = () => {
             if (brandCheckboxes.length < 1) {
                 dispatch(setFilterType([...new Set(allProducts.map(el => el.product_type))].sort()));
             }
+            dispatch(setResetActiveList());
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [typesCheckboxes,
             brandCheckboxes,
@@ -82,9 +90,11 @@ const FiltersSidebar: FC = () => {
     const onShowAllProducts = useCallback(
         () => {
             dispatch(setCategoryReset());
+            dispatch(setFilteredListReset());
+            dispatch(setResetActiveList());
+            dispatch(setPriceFilterReset());
             setBrandCheckboxes([]);
             setTypeCheckboxes([]);
-            dispatch(setFilteredListReset());
         }, [dispatch]);
 
     return (
