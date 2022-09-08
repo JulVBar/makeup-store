@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/makeup-store/static/css/main.d36bddce.css",
-    "main.js": "/makeup-store/static/js/main.40332960.js",
+    "main.css": "/makeup-store/static/css/main.e41454f2.css",
+    "main.js": "/makeup-store/static/js/main.718bc4c0.js",
     "static/css/410.7420c51b.chunk.css": "/makeup-store/static/css/410.7420c51b.chunk.css",
     "static/js/410.008d5aed.chunk.js": "/makeup-store/static/js/410.008d5aed.chunk.js",
-    "static/css/685.8dbed407.chunk.css": "/makeup-store/static/css/685.8dbed407.chunk.css",
-    "static/js/685.840d07fb.chunk.js": "/makeup-store/static/js/685.840d07fb.chunk.js",
-    "static/css/501.9b40f2a0.chunk.css": "/makeup-store/static/css/501.9b40f2a0.chunk.css",
-    "static/js/501.69755efc.chunk.js": "/makeup-store/static/js/501.69755efc.chunk.js",
-    "static/css/682.5815f5e6.chunk.css": "/makeup-store/static/css/682.5815f5e6.chunk.css",
-    "static/js/682.fc3a1add.chunk.js": "/makeup-store/static/js/682.fc3a1add.chunk.js",
+    "static/css/281.a75f9be8.chunk.css": "/makeup-store/static/css/281.a75f9be8.chunk.css",
+    "static/js/281.98846d69.chunk.js": "/makeup-store/static/js/281.98846d69.chunk.js",
+    "static/css/501.e559a37e.chunk.css": "/makeup-store/static/css/501.e559a37e.chunk.css",
+    "static/js/501.9efad1be.chunk.js": "/makeup-store/static/js/501.9efad1be.chunk.js",
+    "static/css/332.aa6837b4.chunk.css": "/makeup-store/static/css/332.aa6837b4.chunk.css",
+    "static/js/332.d0facd4b.chunk.js": "/makeup-store/static/js/332.d0facd4b.chunk.js",
     "static/js/361.df5122bb.chunk.js": "/makeup-store/static/js/361.df5122bb.chunk.js",
     "static/css/141.569bed16.chunk.css": "/makeup-store/static/css/141.569bed16.chunk.css",
     "static/js/141.09eee202.chunk.js": "/makeup-store/static/js/141.09eee202.chunk.js",
@@ -42,16 +42,16 @@
     "static/media/favourite.svg": "/makeup-store/static/media/favourite.7a1bd175222143910616f276afc0eda9.svg",
     "index.html": "/makeup-store/index.html",
     "static/media/leaf.svg": "/makeup-store/static/media/leaf.fce3aacd96c2ca508b2fb98435fbe412.svg",
-    "main.d36bddce.css.map": "/makeup-store/static/css/main.d36bddce.css.map",
-    "main.40332960.js.map": "/makeup-store/static/js/main.40332960.js.map",
+    "main.e41454f2.css.map": "/makeup-store/static/css/main.e41454f2.css.map",
+    "main.718bc4c0.js.map": "/makeup-store/static/js/main.718bc4c0.js.map",
     "410.7420c51b.chunk.css.map": "/makeup-store/static/css/410.7420c51b.chunk.css.map",
     "410.008d5aed.chunk.js.map": "/makeup-store/static/js/410.008d5aed.chunk.js.map",
-    "685.8dbed407.chunk.css.map": "/makeup-store/static/css/685.8dbed407.chunk.css.map",
-    "685.840d07fb.chunk.js.map": "/makeup-store/static/js/685.840d07fb.chunk.js.map",
-    "501.9b40f2a0.chunk.css.map": "/makeup-store/static/css/501.9b40f2a0.chunk.css.map",
-    "501.69755efc.chunk.js.map": "/makeup-store/static/js/501.69755efc.chunk.js.map",
-    "682.5815f5e6.chunk.css.map": "/makeup-store/static/css/682.5815f5e6.chunk.css.map",
-    "682.fc3a1add.chunk.js.map": "/makeup-store/static/js/682.fc3a1add.chunk.js.map",
+    "281.a75f9be8.chunk.css.map": "/makeup-store/static/css/281.a75f9be8.chunk.css.map",
+    "281.98846d69.chunk.js.map": "/makeup-store/static/js/281.98846d69.chunk.js.map",
+    "501.e559a37e.chunk.css.map": "/makeup-store/static/css/501.e559a37e.chunk.css.map",
+    "501.9efad1be.chunk.js.map": "/makeup-store/static/js/501.9efad1be.chunk.js.map",
+    "332.aa6837b4.chunk.css.map": "/makeup-store/static/css/332.aa6837b4.chunk.css.map",
+    "332.d0facd4b.chunk.js.map": "/makeup-store/static/js/332.d0facd4b.chunk.js.map",
     "361.df5122bb.chunk.js.map": "/makeup-store/static/js/361.df5122bb.chunk.js.map",
     "141.569bed16.chunk.css.map": "/makeup-store/static/css/141.569bed16.chunk.css.map",
     "141.09eee202.chunk.js.map": "/makeup-store/static/js/141.09eee202.chunk.js.map",
@@ -59,7 +59,7 @@
     "977.a7216823.chunk.js.map": "/makeup-store/static/js/977.a7216823.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d36bddce.css",
-    "static/js/main.40332960.js"
+    "static/css/main.e41454f2.css",
+    "static/js/main.718bc4c0.js"
   ]
 }
